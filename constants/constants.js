@@ -1,0 +1,35 @@
+"use strict";
+export const ACTIONS = {
+    addTodo: "Add todo",
+    deleteAllDone: "Delete all",
+};
+
+export const BUTTON_TITLES = {
+    editTodo: "EDIT",
+    deleteTodo: "DELETE",
+    moveTodoBack: "BACK",
+    markToDoComplete: "COMPLETE",
+    cancel: "Cancel",
+    confirm: "Confirm",
+    movetoInProgress: ">",
+};
+
+export const CARD_FIELDS = {
+    title: "Title",
+    description: "Description"
+};
+
+export const CARDS_LIMIT_INPROGRESS = 6;
+
+export const ERROR_TITLE = {
+    fieldError: "Title field is required to be filled in"
+};
+
+// скорее всего неправильно класть коды цветов таким образом, нужно глянуть позднее
+export const CARD_COLORS = {
+    green: "#d5e8d4",
+    gray: "#f5f5f5",
+    blue: "#d9e8fb",
+    red: "#f7cecc",
+};
+

@@ -1,0 +1,9 @@
+.input-title {
+    width: 450px;
+    height: 25px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+::placeholder {
+    text-align: center;
+}
