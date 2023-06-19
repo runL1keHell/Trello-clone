@@ -38,13 +38,13 @@
 
                   <div>
 
-                     <input type="text" class="input-title" id="input-title" placeholder="Enter title" autofocus required>
+                     <input type="text" class="input-title" id="inputTitle" placeholder="Enter title" autofocus required>
                      
-                     <input type="textarea" class="input-textarea" id="input-textarea" placeholder="Description" maxlength="200">
+                     <input type="textarea" class="input-textarea" id="inputTextarea" placeholder="Description" maxlength="200">
                   
                      <div class="modal-buttons">
 
-                           <select name="select" class="input-select">
+                           <select name="select" class="input-select" id="inputSelect">
 
                               <option disabled selected>Select user</option>
 
@@ -58,7 +58,7 @@
                               <a href="#">Cancel</a>
                            </div>
 
-                           <div class="button" id="fake-id88">
+                           <div class="button" id="confirmButton">
                               <a href="#">Confirm</a>
                            </div>
                      
@@ -79,7 +79,7 @@
             
             </div>
             
-            <div class="cards-wrapper">
+            <div class="cards-wrapper" id="todoColumn">
 <!--шаблон карточки-->
                <div class="card" id="card-todo">
                   
@@ -109,7 +109,7 @@
 <!--шаблон карточки-->
             </div>
             
-            <div class="add-todo"><a href="#openModal">Add todo</a></div>
+            <div class="add-todo" id="addTodo"><a href="#openModal">Add todo</a></div>
          </div>
 <!--колонка 2-->
          <div class="column">
@@ -152,8 +152,9 @@
       </div>
    </div>
 
-   <script src="./main.js"></script> <!-- вставить позже type="module", см. main.js -->
+   <script src="./main.js" ></script> <!-- вставить позже type="module", см. main.js -->
    <script src="./components/time/time.js"></script> <!-- пока что отдельным скриптом подключено, работает, см. main.js-->
    <script src="./components/modal/modal.js"></script>
+   <script src="./components/button/addToDo.js"></script>
 </body>
 </html>

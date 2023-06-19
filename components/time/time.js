@@ -2,7 +2,7 @@
 // export let date = new Date(); 
 let date = new Date();
 
-const timestamp = document.getElementById("timestamp");
+export const timestamp = document.getElementById("timestamp");
 
 timestamp.innerHTML = new Intl.DateTimeFormat("ru", {
     // weekday: "long",

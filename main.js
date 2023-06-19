@@ -1,5 +1,16 @@
 "use strict";
 
+import { renderTodo } from './components/button/addToDo.js'
+
+document.addEventListener('DOMContentLoaded', () => {
+    if (!localStorage.length) {
+        localStorage.setItem('trelloKey', JSON.stringify([[], [], []]));
+    }  
+    renderTodo();      
+})
+
+
+
 // import {date} from "./components/time/time.js"
 // закоменчено, т.к. ошибка CORS, если type="module" перед </body> в index.html, а без этого не работает import в main.js, выдавая ошибку Uncaught SyntaxError: Cannot use import statement outside a module
 // подключено отдельным скриптом временно
