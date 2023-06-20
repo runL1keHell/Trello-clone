@@ -28,6 +28,7 @@
     flex-direction: row;
     height: 550px;
     margin: 25px 5px 0 20px;
+    
 }
 .column {
     display: flex;
@@ -37,6 +38,8 @@
     border: 1px solid gray;
     border-radius: 15px;
     margin:0 auto;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 .cards-wrapper {
     display: flex;
