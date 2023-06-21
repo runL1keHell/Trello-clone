@@ -21,7 +21,7 @@ export function countCards() {
     document.getElementById('in-progress-counter').textContent = `${countSecondColumn}`;
     document.getElementById('done-counter').textContent = `${countThirdtColumn}`;
 };
-countCards();
+// countCards();
 
 
 

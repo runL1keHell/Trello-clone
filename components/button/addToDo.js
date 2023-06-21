@@ -21,12 +21,12 @@ const confirmButton = document.getElementById('confirmButton');
 confirmButton.addEventListener('click', (ev) => {   
     const inputTitle = document.getElementById('inputTitle');
     const description = document.getElementById('inputTextarea');
-    const inputSelect = document.getElementById('inputSelect');
+    const inputSelect = document.getElementById('inputSelect');   
+    const id = Math.random();   
+    createTodo(id, inputTitle.value, description.value, inputSelect.value, timestamp.innerHTML)
     inputTitle.value = '';
     description.value = '';
     inputSelect.value = '';
-    const id = Math.random();   
-    createTodo(id, inputTitle.value, description.value, inputSelect.value, timestamp.innerHTML); 
        });   
 
 
