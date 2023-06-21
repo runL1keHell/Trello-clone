@@ -38,8 +38,9 @@
     border: 1px solid gray;
     border-radius: 15px;
     margin:0 auto;
-    overflow-y: scroll;
     overflow-x: hidden;
+    overflow-y: scroll;
+    
 }
 .cards-wrapper {
     display: flex;
@@ -56,6 +57,10 @@
     text-transform: uppercase;
     border: 1px solid gray;
     font-weight: bold;
+    position: sticky;
+    top: 0px;
+
+    
 }
 .todo {
     background-color: #d5e8d4;
