@@ -2,6 +2,20 @@ import { timestamp } from "../time/time.js";
 import { countCards } from "../card/countCards.js";
 import { editCard } from "./editTodo.js";
 
+(function() {
+   const confirmButton = document.getElementById('confirmButton');
+   confirmButton.addEventListener('click', (ev) => {   
+    const inputTitle = document.getElementById('inputTitle');
+    const description = document.getElementById('inputTextarea');
+    const inputSelect = document.getElementById('inputSelect');   
+    const id = Math.random();   
+    createTodo(id, inputTitle.value, description.value, inputSelect.value, timestamp.innerHTML)
+    inputTitle.value = '';
+    description.value = '';
+    inputSelect.value = '';
+ 
+       }); 
+})();
 
 const addTodo = document.getElementById('addTodo');
 addTodo.addEventListener('click', (event) => {
@@ -13,28 +27,16 @@ addTodo.addEventListener('click', (event) => {
    });
 
     
-const confirmButton = document.getElementById('confirmButton');
-confirmButton.addEventListener('click', (ev) => {   
-    const inputTitle = document.getElementById('inputTitle');
-    const description = document.getElementById('inputTextarea');
-    const inputSelect = document.getElementById('inputSelect');   
-    const id = Math.random();   
-    createTodo(id, inputTitle.value, description.value, inputSelect.value, timestamp.innerHTML)
-    inputTitle.value = '';
-    description.value = '';
-    inputSelect.value = '';
- 
-       });   
+  
 
 
 function createTodo(id, title, desc, user, date) {
-    console.log("CreateTodo");
     const todoColumn = document.getElementById('todoColumn');
     const newTodo = returnHTML(id, title, desc, user, date);
     todoColumn.innerHTML =  todoColumn.innerHTML + newTodo;
     addLocalstorageTodo(id, title, desc, user, timestamp.innerHTML);
     countCards();
-   //  editCard();
+   
    
 
 };
@@ -64,7 +66,6 @@ function returnHTML(id, title, desc, user, date) {
 }
 
 function addLocalstorageTodo (id, title, desc, user, date) {
-    console.log('AdLocalStorage');
     const localStorageArr = JSON.parse(localStorage.getItem('trelloKey'));
     localStorageArr[0].push (
         {
@@ -85,8 +86,7 @@ export function renderTodo() {
        const newTodo = returnHTML(element.id, element.title, element.desc, element.user, element.date);
        todoColumn.innerHTML =  todoColumn.innerHTML + newTodo;
        countCards();
-      //  editCard();
-    });
+      });
 
 }
 
