@@ -1,41 +1,45 @@
 import { timestamp } from "../time/time.js";
 import { countCards } from "../card/countCards.js";
 import { editCard } from "./editTodo.js";
+import { modalOpenClose, closeMod } from '..//../components/modal/modal.js'
 
-(function() {
+let id;
+
+(() => {
    const confirmButton = document.getElementById('confirmButton');
    confirmButton.addEventListener('click', (ev) => {   
-    const inputTitle = document.getElementById('inputTitle');
-    const description = document.getElementById('inputTextarea');
-    const inputSelect = document.getElementById('inputSelect');   
-    const id = Math.random();   
-    createTodo(id, inputTitle.value, description.value, inputSelect.value, timestamp.innerHTML)
-    inputTitle.value = '';
-    description.value = '';
-    inputSelect.value = '';
+   const inputTitle = document.getElementById('inputTitle');
+   const description = document.getElementById('inputTextarea');
+   const inputSelect = document.getElementById('inputSelect');   
+   // const id = Math.random();   
+   if (!id) { 
+      createTodo(inputTitle.value, description.value, inputSelect.value, timestamp.innerHTML)
+   } else {
+      editTodo();
+   };
+   inputTitle.value = '';
+   description.value = '';
+   inputSelect.value = '';
+   id = undefined;
  
        }); 
 })();
 
 const addTodo = document.getElementById('addTodo');
 addTodo.addEventListener('click', (event) => {
-   document.querySelector('.modal-title').innerText = 'Add';
-   // const modalWindow = document.getElementById('openModal');
-   // modalWindow.style.opacity = 1;
-   // modalWindow.style.pointerEvents = auto;
-   // modalWindow.style.overflowY = auto;  
+   modalOpenClose('Add');   
    });
 
+function createTodo(title, desc, user, date) {
+   const todoColumn = document.getElementById('todoColumn');
+   id = Math.random(); 
+   const newTodo = returnHTML(id, title, desc, user, date);
     
-  
-
-
-function createTodo(id, title, desc, user, date) {
-    const todoColumn = document.getElementById('todoColumn');
-    const newTodo = returnHTML(id, title, desc, user, date);
     todoColumn.innerHTML =  todoColumn.innerHTML + newTodo;
     addLocalstorageTodo(id, title, desc, user, timestamp.innerHTML);
     countCards();
+    closeMod();
+    id = undefined;
    
    
 
@@ -45,7 +49,7 @@ function returnHTML(id, title, desc, user, date) {
    return  ` <div class="card" id="${id}">
                   
     <div class="card-top-buttons">
-       <div class="button editBtn" id="edit-${id}"><a href="#openModal">Edit</a></div>
+       <div class="button editBtn" id="edit-${id}">Edit</div>
        <div class="button" id="delete-${id}">Delete</div>
     </div>
     
@@ -87,6 +91,5 @@ export function renderTodo() {
        todoColumn.innerHTML =  todoColumn.innerHTML + newTodo;
        countCards();
       });
-
 }
 
