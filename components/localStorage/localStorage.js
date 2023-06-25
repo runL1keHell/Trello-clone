@@ -1,4 +1,4 @@
-import { renderTodo } from '../button/addTodo.js'
+import { renderTodo } from "../button/addToDo";
 
 document.addEventListener('DOMContentLoaded', () => {
     if (!localStorage.length) {

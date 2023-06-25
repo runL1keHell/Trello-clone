@@ -5,7 +5,7 @@ import './components/time/time.js';
 import './components/localStorage/localStorage.js';
 // import './components/button/addToDo.js';
 // import './components/button/editTodo.js';
-// import './components/button/deleteTodo.js'
+import './components/button/deleteTodo.js'
 
 
 

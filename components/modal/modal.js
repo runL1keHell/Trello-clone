@@ -11,28 +11,29 @@
     // });
   // });
 
-  export function modalOpenClose(param) {
+  export function modalStyling(param) {
     if (param === 'Add') {
-        document.querySelector('.modal-title').innerText = 'Add';
-        } else if (param === 'Edit') {
-            document.querySelector('.modal-title').innerText = 'Edit';
-        }
+    document.querySelector('.modal-title').innerText = 'Add';
+    } else if (param === 'Edit') {
+        document.querySelector('.modal-title').innerText = 'Edit';
+    };
+
     const modalWindow = document.getElementById('openModal');
     modalWindow.style.opacity = 1;
     modalWindow.style.pointerEvents = 'auto';
     modalWindow.style.overflowY = 'auto';  
 
     const closeByX = document.getElementById('close1');
-    closeByX.addEventListener('click', closeMod);
+    closeByX.addEventListener('click', closeModal);
 
     const closeByCancel = document.getElementById('close2');
-    closeByCancel.addEventListener('click', closeMod);
+    closeByCancel.addEventListener('click', closeModal);
 
     // добавить, чтобы окно закрывалось на ESC и клик вне его области
     
 }
 
-export function closeMod() {
+export function closeModal() {
    const modalWindow = document.getElementById('openModal');
    modalWindow.style.opacity = 0;
    modalWindow.style.pointerEvents = 'none';
