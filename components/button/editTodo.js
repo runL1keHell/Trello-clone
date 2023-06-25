@@ -1,4 +1,4 @@
-// import { modalOpenClose } from '../modal/modal.js';
+// import { modalStyling,  closeModal } from '../modal/modal.js';
 // // import { id } from '..//button/addToDo';
 
 // (() => {
@@ -6,7 +6,7 @@
 //     todoColumn.addEventListener('click', (e) => {
 //         const targetId = e.target.closest('.editBtn').id.split('-')[1];
 //         console.log(targetId);
-//         modalOpenClose('Edit');   
+//         modalStyling('Edit');   
 //         const localStorageArr = JSON.parse(localStorage.getItem('trelloKey'));
 //         localStorageArr[0].forEach(element => {      
 //             if (element.id == targetId) {
@@ -30,14 +30,14 @@
 //                     //     el.user = document.getElementById('inputSelect').value;                              
 //                     // });                     
                         
-//                 };
-//             });
-         
-//            });
+//             };
+//         });         
+//     });
 //         // localStorage.setItem('trelloKey', JSON.stringify(localStorageArr)); 
+    
     
 // })();
 
-// function editTodo() {
+// // function editTodo() {
 
-// }
+// // }

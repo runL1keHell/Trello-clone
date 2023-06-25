@@ -1,3 +1,4 @@
+
 // document.addEventListener("DOMContentLoaded", function(){   
 //   let scrollbar = document.body.clientWidth - window.innerWidth + 'px';
 //     document.querySelector('[href="#openModal"]').addEventListener('click',function(){
@@ -10,6 +11,7 @@
      
     // });
   // });
+
 
   export function modalStyling(param) {
     if (param === 'Add') {
@@ -29,7 +31,17 @@
     const closeByCancel = document.getElementById('close2');
     closeByCancel.addEventListener('click', closeModal);
 
-    // добавить, чтобы окно закрывалось на ESC и клик вне его области
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+          closeModal()
+      }
+      });
+  
+    window.addEventListener('click', (e) => {
+      if (e.target == modalWindow) {            
+          closeModal();
+      }
+  });
     
 }
 
@@ -38,4 +50,8 @@ export function closeModal() {
    modalWindow.style.opacity = 0;
    modalWindow.style.pointerEvents = 'none';
    modalWindow.style.overflowY = 'none';   
+
+  document.getElementById('inputTitle').value = '';
+  document.getElementById('inputTextarea').value = '';
+  document.getElementById('inputSelect').value = ''; 
 }
