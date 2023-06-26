@@ -10,7 +10,7 @@ todoColumn.addEventListener('click', (e) => {
       const storageIndexOfElement = localStorageArr[0].findIndex((element) => element.id.toString() === targetId);
       const elementToEdit = localStorageArr[0][storageIndexOfElement];
       appendModal();
-      modalStyling('Add');
+      modalStyling('Edit');
 
       document.getElementById('inputTitle').value = elementToEdit.title;
       document.getElementById('inputTextarea').value = elementToEdit.desc;
@@ -22,11 +22,7 @@ todoColumn.addEventListener('click', (e) => {
          elementToEdit.title = document.getElementById('inputTitle').value;
          elementToEdit.desc = document.getElementById('inputTextarea').value;
          elementToEdit.user = document.getElementById('inputSelect').value;   
-         
-         document.getElementById('inputTitle').value = `${elementToEdit.title}`;
-         document.getElementById('inputTextarea').value = `${elementToEdit.desc}`;
-         document.getElementById('inputSelect').value = `${elementToEdit.user}`; 
-
+        
          localStorage.setItem('trelloKey', JSON.stringify(localStorageArr));
          closeModal();
          location.reload();
