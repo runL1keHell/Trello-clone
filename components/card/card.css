@@ -12,7 +12,9 @@
     /* синий #d9e8fb  */
     /* красный #f7cecc */
 }
-
+.card-edited {
+    background-color: rgb(226, 133, 102);
+}
 /* три временных стиля temp1, temp2, temp3 для цветов карточек в 3 колонке, потом снести */
 .temp1 {
     background-color: #f5f5f5; 

@@ -16,8 +16,16 @@ import { modalStyling, closeModal, appendModal } from '../modal/modal.js'
          countCards();
          closeModal(); 
       });
+     
+      const modal = document.querySelector('.modal-dialog')
+      modal.addEventListener('keydown', (e) => {
+         if (e.keyCode === 13) {
+            appendTodo();
+            countCards();
+            closeModal(); 
+         };    
+      });
    });
-
 })();
 
 
@@ -29,16 +37,16 @@ function appendTodo() {
    const time = timestamp.innerHTML;
 
    const todoColumn = document.getElementById('todoColumn');
-   const newTodo = returnHTML(id, inputTitle.value, description.value, inputSelect.value, time);
+   const newTodo = returnHTML(id, inputTitle.value, description.value, inputSelect.value, time, '');
    todoColumn.innerHTML =  todoColumn.innerHTML + newTodo;
 
-   addLocalStorageTodo(id, inputTitle.value, description.value, inputSelect.value, time);
+   addLocalStorageTodo(id, inputTitle.value, description.value, inputSelect.value, time, false);
 };
 
 
-function returnHTML(id, title, desc, user, date) {
+function returnHTML(id, title, desc, user, date, classEdit) {
    return  ` 
-      <div class="card" id="${id}">
+      <div class="card ${classEdit}" id="${id}">
                      
          <div class="card-top-buttons">
             <div class="button editBtn" id="edit-${id}">Edit</div>
@@ -63,7 +71,7 @@ function returnHTML(id, title, desc, user, date) {
 }
 
 
-function addLocalStorageTodo (id, title, desc, user, date) {
+function addLocalStorageTodo (id, title, desc, user, date, edit) {
    const localStorageArr = JSON.parse(localStorage.getItem('trelloKey'));
    localStorageArr[0].push({
       id,
@@ -71,6 +79,7 @@ function addLocalStorageTodo (id, title, desc, user, date) {
       desc,
       user,
       date,
+      edited: false
    });
 
    localStorage.setItem('trelloKey', JSON.stringify(localStorageArr));   
@@ -78,15 +87,21 @@ function addLocalStorageTodo (id, title, desc, user, date) {
 
 
 export function renderTodo() {    
-    const localStorageArr = JSON.parse(localStorage.getItem('trelloKey'));
-    if (!localStorageArr[0]) return;
-    localStorageArr[0].forEach(element => {      
+   const localStorageArr = JSON.parse(localStorage.getItem('trelloKey'));
+   if (!localStorageArr[0]) return;
+   localStorageArr[0].forEach(element => {      
       const todoColumn = document.getElementById('todoColumn');
-      const newTodo = returnHTML(element.id, element.title, element.desc, element.user, element.date);
+      let newTodo;
+      if (element.edited) {
+         newTodo = returnHTML(element.id, element.title, element.desc, element.user, element.date, 'card-edited')
+      } else {
+         newTodo = returnHTML(element.id, element.title, element.desc, element.user, element.date, '')
+      }
       todoColumn.innerHTML =  todoColumn.innerHTML + newTodo;
+
       countCards();
    });
-};
+}
    
 
 
