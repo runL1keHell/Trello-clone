@@ -28,6 +28,7 @@
     flex-direction: row;
     height: 550px;
     margin: 25px 5px 0 20px;
+    
 }
 .column {
     display: flex;
@@ -36,12 +37,16 @@
     width: 30%;
     border: 1px solid gray;
     border-radius: 15px;
-    margin:0 auto;
+    margin: 0 auto;    
+    
 }
 .cards-wrapper {
     display: flex;
     flex-direction: column;
     flex: 1 0 auto; /* часть кода пятого способа с https://dimox.name/press_footer_bottom_with_css/ */
+    overflow-y: auto;
+    max-height: 450px;
+
 }
 .column-heading {
     display: flex;
@@ -53,6 +58,7 @@
     text-transform: uppercase;
     border: 1px solid gray;
     font-weight: bold;
+        
 }
 .todo {
     background-color: #d5e8d4;
