@@ -12,8 +12,61 @@
     // });
   // });
 
+  export function appendModal () {
+    const modalContainer = document.getElementById('openModal');
+    modalContainer.innerHTML = `
+    <div class="modal-dialog">
+
+      <div class="modal-content">
+
+        <div class="modal-header">
+
+          <h3 class="modal-title">Add/Edit todo</h3>
+
+          <title="Close" class="close" id="close1">×</a>
+
+        </div>
+
+        <div class="modal-body">
+
+          <div>
+
+            <input type="text" class="input-title" id="inputTitle" placeholder="Enter title" autofocus required>
+            
+            <input type="textarea" class="input-textarea" id="inputTextarea" placeholder="Description" maxlength="200">
+        
+            <div class="modal-buttons">
+
+              <select name="select" class="input-select" id="inputSelect">
+
+                <option disabled selected>Select user</option>
+
+                <option value="User1">User 1</option>
+
+                <option value="User2">User 2</option>
+        
+              </select>
+
+              <div class="button" id="fake-id77">
+                <a href="#" id="close2">Cancel</a>
+              </div>
+
+              <div class="button" id="confirmButton">
+                Confirm
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    `
+  }
+
+  
 
   export function modalStyling(param) {
+    
     if (param === 'Add') {
     document.querySelector('.modal-title').innerText = 'Add';
     } else if (param === 'Edit') {
@@ -33,13 +86,13 @@
 
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') {
-          closeModal()
+        closeModal()
       }
       });
   
     window.addEventListener('click', (e) => {
       if (e.target == modalWindow) {            
-          closeModal();
+        closeModal();
       }
   });
     
@@ -54,4 +107,10 @@ export function closeModal() {
   document.getElementById('inputTitle').value = '';
   document.getElementById('inputTextarea').value = '';
   document.getElementById('inputSelect').value = ''; 
+  deleteModalFromHtml();
+}
+
+const deleteModalFromHtml = () => {
+  const modalContainer = document.getElementById('openModal');
+  modalContainer.innerHTML = '';
 }
