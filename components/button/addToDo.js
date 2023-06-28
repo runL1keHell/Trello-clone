@@ -68,7 +68,50 @@ function returnHTML(id, title, desc, user, date, classEdit) {
          </div>
       </div>
    `
-}
+};
+
+function returnHTML_inprogress(id, title, desc, user, date, classEdit) {
+   return  ` 
+      <div class="card inprogress" id="${id}">
+                     
+         <div class="card-top-buttons">
+            <div class="button backBtn" id="back-${id}">Back</div>
+            <div class="button" id="complete-${id}">Complete</div>
+         </div>
+         
+         <div class="card-title">${title}</div>
+
+         <div class="card-description">${desc}</div>
+
+         <div class="user">${user}
+
+            <div id="timeCreated">${date}</div>
+         
+         </div>
+      </div>
+   `
+};
+
+function returnHTML_done(id, title, desc, user, date, classEdit) {
+   return  ` 
+      <div class="card done" id="${id}">
+                     
+         <div class="card-top-buttons">
+            <div class="button" id="delete-${id}">Delete</div>
+         </div>
+         
+         <div class="card-title">${title}</div>
+
+         <div class="card-description">${desc}</div>
+
+         <div class="user">${user}
+
+            <div id="timeCreated">${date}</div>
+         
+         </div>
+      </div>
+   `
+};
 
 
 function addLocalStorageTodo (id, title, desc, user, date, edit) {
@@ -97,10 +140,22 @@ export function renderTodo() {
       } else {
          newTodo = returnHTML(element.id, element.title, element.desc, element.user, element.date, '')
       }
-      todoColumn.innerHTML =  todoColumn.innerHTML + newTodo;
+      todoColumn.innerHTML =  todoColumn.innerHTML + newTodo;     
 
       countCards();
    });
+   localStorageArr[1].forEach(element => {
+      const todoInProgress = document.getElementById('todoInProgress');
+      const newTodoColumn2 = returnHTML_inprogress(element.id, element.title, element.desc, element.user, element.date, element.edit)
+      todoInProgress.innerHTML = todoInProgress.innerHTML + newTodoColumn2;
+      countCards();
+   })
+   localStorageArr[2].forEach(element => {
+      const todoDone = document.getElementById('todoDone');
+      const newTodoColumn3 = returnHTML_done(element.id, element.title, element.desc, element.user, element.date, element.edit)
+      todoDone.innerHTML = todoDone.innerHTML + newTodoColumn3;
+      countCards();
+   })
 }
    
 

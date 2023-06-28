@@ -15,4 +15,30 @@ import { countCards } from "../card/countCards";
          countCards();
       };
    });
+
+   const todoColumnDone = document.getElementById('todoDone'); 
+   todoColumnDone.addEventListener('click', (e) => {
+      if (e.target.id.includes("delete")) {
+         const localStorageArr = JSON.parse(localStorage.getItem('trelloKey'));
+         const targetId = e.target.id.split('-')[1];         
+         const storageIndexOfElement = localStorageArr[2].findIndex((element) => element.id.toString() === targetId);
+         const todoToRemove = document.getElementById(targetId);
+         todoToRemove.remove();
+         localStorageArr[2].splice(storageIndexOfElement, 1);
+         localStorage.setItem('trelloKey', JSON.stringify(localStorageArr));
+         countCards();
+      };
+   });
+
+   const deleteAll = document.getElementById('DeleteAll'); 
+   deleteAll.addEventListener('click', (e) => {
+         const localStorageArr = JSON.parse(localStorage.getItem('trelloKey'));
+         localStorageArr[2].splice(0);
+         localStorage.setItem('trelloKey', JSON.stringify(localStorageArr));
+         countCards();
+         location.reload();   
+      
+   });
+   
+
 })();
