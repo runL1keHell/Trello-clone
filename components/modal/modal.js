@@ -82,7 +82,7 @@
       }
       });
   
-    window.addEventListener('click', (e) => {
+    window.addEventListener('mousedown', (e) => {
       if (e.target == modalWindow) {            
         closeModal();
       }
