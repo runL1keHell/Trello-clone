@@ -1,39 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Trello</title>
-   <link rel="stylesheet" href="./css/styles.css">
-   <script src="./main.js" type="module"></script>
-</head>
-<body>
-
-   <div class="app-container">
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trello</title>
+    <!-- <link rel="stylesheet" href="./css/styles.css"> -->
+    <script src="./main.js" type="module"></script>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="app-container">
       <div class="header">
+        <div class="logo">
+          <img src="./img/logo.png" width="50%" height="50%" alt="Trello" />
+        </div>
 
-         <div class="logo">
-            <img src="./img/logo.png" width="50%" height="50%" alt="Trello">
-         </div>
-
-         <div id="timestamp"></div>
-
+        <div id="timestamp"></div>
       </div>
 
       <div class="columns">
-<!--колонка 1-->
-         <div class="column">
-            
-            <div class="column-heading todo">todo:
-               
-               <div class="todo-counter" id="todocounter">0</div>
-            
-            </div>
-            
-            <div class="cards-wrapper" id="todoColumn">
-<!--шаблон карточки-->
-               <!-- <div class="card" id="card-todo">
+        <!--колонка 1-->
+        <div class="column">
+          <div class="column-heading todo">
+            todo:
+
+            <div class="todo-counter" id="todocounter">0</div>
+          </div>
+
+          <div class="cards-wrapper" id="todoColumn">
+            <!--шаблон карточки-->
+            <!-- <div class="card" id="card-todo">
                   
                   <div class="card-top-buttons">
                      <div class="button" id="some-id">Edit</div>
@@ -58,53 +54,48 @@
                   
                   </div>
                </div> -->
-<!--шаблон карточки-->
-            </div>
-            
-            <div class="add-todo" id="addTodo">Add todo</div>
-         </div>
-<!--колонка 2-->
-         <div class="column">
+            <!--шаблон карточки-->
+          </div>
 
-            <div class="column-heading in-progress">in progress:
-               <div class="in-progress-counter" id="in-progress-counter">0</div>
-            </div>
+          <div class="add-todo" id="addTodo">Add todo</div>
+        </div>
+        <!--колонка 2-->
+        <div class="column">
+          <div class="column-heading in-progress">
+            in progress:
+            <div class="in-progress-counter" id="in-progress-counter">0</div>
+          </div>
 
-            <div class="cards-wrapper" id="todoInProgress">
-
-               <!-- <div class="card">
+          <div class="cards-wrapper" id="todoInProgress">
+            <!-- <div class="card">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                   Esse quas dignissimos numquam earum impedit alias porro! Totam vitae iste 
                   laudantium autem praesentium corrupti recusandae tempora inventore, 
                   sequi et quis quae.
                </div> -->
+          </div>
+        </div>
+        <!--колонка 3-->
+        <div class="column">
+          <div class="column-heading done">
+            done:
+            <div class="done-counter" id="done-counter">0</div>
+          </div>
 
-            </div>
-         </div>
-<!--колонка 3-->
-         <div class="column">
-
-            <div class="column-heading done">done:
-               <div class="done-counter" id="done-counter">0</div>
-            </div>
-
-            <div class="cards-wrapper" id="todoDone">
-
-               <!-- <div class="card temp1">Благодаря свойству box-sizing: border-box, мы не позволяем блоку с классом .content превысить высоту 100%. То есть в данном случае min-height: 100% + padding-bottom: 90px равняется 100% высоты окна браузера.</div>
+          <div class="cards-wrapper" id="todoDone">
+            <!-- <div class="card temp1">Благодаря свойству box-sizing: border-box, мы не позволяем блоку с классом .content превысить высоту 100%. То есть в данном случае min-height: 100% + padding-bottom: 90px равняется 100% высоты окна браузера.</div>
                
                <div class="card temp2">Благодаря свойству box-sizing: border-box, мы не позволяем блоку с классом .content превысить высоту 100%. То есть в данном случае min-height: 100% + padding-bottom: 90px равняется 100% высоты окна браузера.</div>
                
                <div class="card temp3">Благодаря свойству box-sizing: border-box, мы не позволяем блоку с классом .content превысить высоту 100%. То есть в данном случае min-height: 100% + padding-bottom: 90px равняется 100% высоты окна браузера.</div>
              -->
-            </div>
-            
-            <div class="delete-all-todo" id="DeleteAll">Delete all</div>
-        
-         </div>
+          </div>
+
+          <div class="delete-all-todo" id="DeleteAll">Delete all</div>
+        </div>
       </div>
-   </div>
+    </div>
 
-   <div id="openModal" class="modal"></div>
-
-</body>
+    <div id="openModal" class="modal"></div>
+  </body>
 </html>
