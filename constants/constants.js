@@ -25,7 +25,16 @@ export const ERROR_TITLE = {
     fieldError: "Title field is required to be filled in"
 };
 
-// скорее всего неправильно класть коды цветов таким образом, нужно глянуть позднее
+export const WARNING_LIMIT_INPROGRESS = {
+    warningText: "There are `${CARDS_LIMIT_INPROGRESS}` tasks In Progress already. Do you confirm adding one more?"
+};
+
+export const WARNING_DELETE_ALL_CARDS = {
+    warningText: "Are you sure you want to delete all done tasks?"
+};
+
+export const remoteUsersCount = 3;
+
 export const CARD_COLORS = {
     green: "#d5e8d4",
     gray: "#f5f5f5",

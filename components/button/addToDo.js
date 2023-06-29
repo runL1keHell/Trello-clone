@@ -1,6 +1,8 @@
 import { timestamp } from "../time/time.js";
 import { countCards } from "../card/countCards.js";
 import { modalStyling, closeModal, appendModal } from '../modal/modal.js'
+import { getUsers } from "../users/users.js";
+import { remoteUsersCount } from "../../constants/constants.js";
 
 
 (() => {
@@ -8,6 +10,7 @@ import { modalStyling, closeModal, appendModal } from '../modal/modal.js'
    const addTodo = document.getElementById('addTodo');
    addTodo.addEventListener('click', () => {
       appendModal();
+      getUsers(remoteUsersCount);
       modalStyling('Add');
 
       const confirmButton = document.getElementById('confirmButton');
