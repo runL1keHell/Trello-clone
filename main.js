@@ -7,14 +7,7 @@ import './components/localStorage/localStorage.js';
 import './components/button/editTodo.js';
 import './components/button/deleteTodo.js';
 import './components/button/moveTodo.js';
+import './components/users/users.js';
 
-
-
-
-// import {date} from "./components/time/time.js"
-// закоменчено, т.к. ошибка CORS, если type="module" перед </body> в index.html, а без этого не работает import в main.js, выдавая ошибку Uncaught SyntaxError: Cannot use import statement outside a module
-// подключено отдельным скриптом временно
-// todo: сделать, чтобы время тикало без обновления страницы
-
-// import {ACTIONS, BUTTON_TITLES, CARD_FIELDS, CARDS_LIMIT_INPROGRESS, CARD_COLORS, ERROR_TITLE}  from "./constants/constants.js"
-// это все константы (тексты кнопок и ошибки, цвета, лимиты) тоже пока закоменчено из-за type="module"
+// import {ACTIONS, BUTTON_TITLES, CARD_FIELDS, CARDS_LIMIT_INPROGRESS, CARD_COLORS, ERROR_TITLE, WARNING_LIMIT_INPROGRESS, WARNING_DELETE_ALL_CARDS}  from "./constants/constants.js"
+// константы (тексты кнопок и ошибки, цвета, лимиты)

@@ -1,4 +1,6 @@
 import { appendModal, modalStyling, closeModal } from "../modal/modal";
+import { getUsers } from "../users/users";
+import { remoteUsersCount } from "../../constants/constants.js";
 
 const todoColumn = document.getElementById('todoColumn');
 
@@ -10,6 +12,7 @@ todoColumn.addEventListener('click', (e) => {
       const storageIndexOfElement = localStorageArr[0].findIndex((element) => element.id.toString() === targetId);
       const elementToEdit = localStorageArr[0][storageIndexOfElement];
       appendModal();
+      getUsers(remoteUsersCount);
       modalStyling('Edit');
 
       document.getElementById('inputTitle').value = elementToEdit.title;

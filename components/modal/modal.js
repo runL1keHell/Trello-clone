@@ -38,18 +38,10 @@
             <div class="modal-buttons">
 
               <select name="select" class="input-select" id="inputSelect">
-
-                <option disabled selected>Select user</option>
-
-                <option value="User1">User 1</option>
-
-                <option value="User2">User 2</option>
         
               </select>
 
-              <div class="button" id="fake-id77">
-                <a href="#" id="close2">Cancel</a>
-              </div>
+              <div class="button" id="close2">Cancel</div>
 
               <div class="button" id="confirmButton">
                 Confirm
