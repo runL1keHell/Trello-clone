@@ -70,7 +70,7 @@
     modalWindow.style.pointerEvents = 'auto';
     modalWindow.style.overflowY = 'auto';  
 
-    const closeByX = document.getElementById('close1');
+    const closeByX = document.getElementById('close1');    
     closeByX.addEventListener('click', closeModal);
 
     const closeByCancel = document.getElementById('close2');
@@ -101,6 +101,7 @@ export function closeModal() {
   document.getElementById('inputSelect').value = ''; 
   deleteModalFromHtml();
 }
+
 
 const deleteModalFromHtml = () => {
   const modalContainer = document.getElementById('openModal');

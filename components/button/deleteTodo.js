@@ -1,4 +1,6 @@
 import { countCards } from "../card/countCards";
+import { appendWarningModal, modalSmStyling } from "../modal/modalWarnings.js";
+
 
 (() => {
     const todoColumn = document.getElementById('todoColumn');
@@ -32,11 +34,16 @@ import { countCards } from "../card/countCards";
 
    const deleteAll = document.getElementById('DeleteAll'); 
    deleteAll.addEventListener('click', (e) => {
-         const localStorageArr = JSON.parse(localStorage.getItem('trelloKey'));
-         localStorageArr[2].splice(0);
-         localStorage.setItem('trelloKey', JSON.stringify(localStorageArr));
-         countCards();
-         location.reload();   
+         appendWarningModal();         
+         modalSmStyling();
+         const confirmDelAllBtn = document.getElementById('confirmButton');
+         confirmDelAllBtn.addEventListener('click', () => {
+            const localStorageArr = JSON.parse(localStorage.getItem('trelloKey'));
+            localStorageArr[2].splice(0);
+            localStorage.setItem('trelloKey', JSON.stringify(localStorageArr));
+            countCards();
+            location.reload();  
+         })
       
    });
    
