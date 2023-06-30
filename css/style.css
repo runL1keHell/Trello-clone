@@ -94,7 +94,9 @@
 
 /* Колонки */
 .column {
+  display: flex;
   margin-bottom: 20px;
+  flex-direction: column;
 }
 
 /* Заголовки колонок */
@@ -152,6 +154,8 @@
 .card-description {
   max-height: 150px;
   overflow: hidden;
+  position: static;
+  width: 100%;
 }
 
 /* Кнопка "Переместить" на карточке */
