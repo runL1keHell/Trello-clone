@@ -141,7 +141,6 @@
   margin-bottom: 10px;
 }
 
-/* Кнопка "Редактировать" на карточке */
 .button a {
   text-decoration: none;
   color: #333;
@@ -150,22 +149,20 @@
   border-radius: 5px;
 }
 
-/* Описание задачи на карточке */
 .card-description {
   max-height: 150px;
   overflow: hidden;
   position: static;
   width: 100%;
+  white-space: normal;
 }
 
-/* Кнопка "Переместить" на карточке */
 .button-move {
   display: flex;
-  justify-content: flex-end;
+  /* justify-content: flex-end; */
   margin-top: 10px;
 }
 
-/* Удалить все задачи */
 .delete-all-todo {
   background-color: #d9e8fb;
   border-radius: 15px;
