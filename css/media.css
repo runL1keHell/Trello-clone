@@ -20,11 +20,13 @@ li {
 /* Адаптивные стили */
 
 /* Дополнительные стили для планшета */
-@media only screen and (min-width: 768px) {
-  /* Ширина колонок на планшете */
+@media only screen and (max-width: 770px) {
+
   .column {
-    flex-basis: 20%;
+    flex-basis: 80%;
+    margin-top: 50px;
   }
+
 }
 
 /* Дополнительные стили для мобильного устройства */
