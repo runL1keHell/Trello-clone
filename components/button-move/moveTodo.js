@@ -21,7 +21,7 @@ todoColumn.addEventListener('click', (e) => {
         location.reload();      
        } else {
         appendWarningModal();
-        modalSmStyling();
+        modalStyling('small');
         const confirmDelAllBtn = document.getElementById('confirmButton');
         confirmDelAllBtn.addEventListener('click', () => {
             localStorageArr[1].push(elementToMove);

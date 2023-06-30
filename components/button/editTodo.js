@@ -13,7 +13,7 @@ todoColumn.addEventListener('click', (e) => {
       const elementToEdit = localStorageArr[0][storageIndexOfElement];
       appendModal();
       getUsers(remoteUsersCount);
-      modalStyling('Edit');
+      modalStyling('big', 'Edit');
 
       document.getElementById('inputTitle').value = elementToEdit.title;
       document.getElementById('inputTextarea').value = elementToEdit.desc;

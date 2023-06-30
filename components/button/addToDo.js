@@ -11,7 +11,7 @@ import { remoteUsersCount } from "../../constants/constants.js";
    addTodo.addEventListener('click', () => {
       appendModal();
       getUsers(remoteUsersCount);
-      modalStyling('Add');
+      modalStyling('big', 'Add');
 
       const confirmButton = document.getElementById('confirmButton');
       confirmButton.addEventListener('click', () => {

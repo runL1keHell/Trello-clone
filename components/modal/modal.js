@@ -55,27 +55,16 @@
     `
   }
 
-  
-
-  export function modalStyling(param) {
+  export function modalStyling(param1, param2) {
     
-    if (param === 'Add') {
-    document.querySelector('.modal-title').innerText = 'Add';
-    } else if (param === 'Edit') {
-        document.querySelector('.modal-title').innerText = 'Edit';
-    };
-
     const modalWindow = document.getElementById('openModal');
     modalWindow.style.opacity = 1;
     modalWindow.style.pointerEvents = 'auto';
-    modalWindow.style.overflowY = 'auto';  
-
-    const closeByX = document.getElementById('close1');    
-    closeByX.addEventListener('click', closeModal);
+    modalWindow.style.overflowY = 'auto';   
 
     const closeByCancel = document.getElementById('close2');
     closeByCancel.addEventListener('click', closeModal);
-
+    
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') {
         closeModal()
@@ -87,18 +76,41 @@
         closeModal();
       }
   });
-    
-}
+
+    if (param1 === 'big') {
+      if (param2 === 'Add') {
+        document.querySelector('.modal-title').innerText = 'Add';
+        } else if (param2 === 'Edit') {
+            document.querySelector('.modal-title').innerText = 'Edit';
+        };    
+          
+        const closeByX = document.getElementById('close1');    
+        closeByX.addEventListener('click', closeModal);
+         
+    } else if (param1 === 'small') {
+        
+      document.querySelector('.modal-header').classList.add('modal-header-sm');
+      document.querySelector('.modal-dialog').classList.add('modal-dialog-sm');
+      document.querySelector('.modal-content').classList.add('modal-cont-sm');
+      document.querySelector('.modal-buttons').classList.add('modal-buttons-sm');
+        
+    }
+  }
+
+   
 
 export function closeModal() {
    const modalWindow = document.getElementById('openModal');
    modalWindow.style.opacity = 0;
    modalWindow.style.pointerEvents = 'none';
    modalWindow.style.overflowY = 'none';   
-
-  document.getElementById('inputTitle').value = '';
-  document.getElementById('inputTextarea').value = '';
-  document.getElementById('inputSelect').value = ''; 
+  
+  if (document.getElementById('inputTitle')) {
+    document.getElementById('inputTitle').value = '';
+    document.getElementById('inputTextarea').value = '';
+    document.getElementById('inputSelect').value = ''; 
+  }
+  
   deleteModalFromHtml();
 }
 

@@ -1,11 +1,10 @@
 import { countCards } from "../card/countCards";
+import { modalStyling } from "../modal/modal.js";
 import { appendWarningModal, modalSmStyling } from "../modal/modalWarnings.js";
-
 
 (() => {
     const todoColumn = document.getElementById('todoColumn');
-    todoColumn.addEventListener('click', (e) => {
-      
+    todoColumn.addEventListener('click', (e) => {      
       if (e.target.id.includes("delete")) {
          const localStorageArr = JSON.parse(localStorage.getItem('trelloKey'));
          const targetId = e.target.id.split('-')[1];
@@ -35,7 +34,7 @@ import { appendWarningModal, modalSmStyling } from "../modal/modalWarnings.js";
    const deleteAll = document.getElementById('DeleteAll'); 
    deleteAll.addEventListener('click', (e) => {
          appendWarningModal();         
-         modalSmStyling();
+         modalStyling('small');
          const confirmDelAllBtn = document.getElementById('confirmButton');
          confirmDelAllBtn.addEventListener('click', () => {
             const localStorageArr = JSON.parse(localStorage.getItem('trelloKey'));
