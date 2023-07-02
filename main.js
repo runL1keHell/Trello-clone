@@ -9,5 +9,39 @@ import './components/button/deleteTodo.js';
 import './components/button-move/moveTodo.js';
 import './components/users/users.js';
 
+import { addLocalStorageTodo, renderTodo } from './components/button/addToDo.js'
+import { MOCK_API } from './constants/constants.js'
+
+(function getMocki() {
+fetch(MOCK_API, {
+  method: 'GET',
+  headers: {'content-type':'application/json'},
+}).then(res => {
+  if (res.ok) {
+      return res.json();
+  }
+  // handle error
+}).then(task => {
+    const localStorageArr = JSON.parse(localStorage.getItem('trelloKey'));
+    localStorageArr[0] = task;
+    localStorage.setItem('trelloKey', JSON.stringify(localStorageArr));   
+   
+  // Do something with the list of tasks
+
+//  
+}).catch(error => {
+  // handle error
+  console.log('Ошибка получения данных');
+})
+})();
+
+// export function setMocki() {
+   
+    
+    
+       
+
+
+
 // import {ACTIONS, BUTTON_TITLES, CARD_FIELDS, CARDS_LIMIT_INPROGRESS, CARD_COLORS, ERROR_TITLE, WARNING_LIMIT_INPROGRESS, WARNING_DELETE_ALL_CARDS}  from "./constants/constants.js"
 // константы (тексты кнопок и ошибки, цвета, лимиты).

@@ -42,3 +42,5 @@ export const CARD_COLORS = {
     red: "#f7cecc",
 };
 
+export const MOCK_API = 'https://649eda18245f077f3e9d00a8.mockapi.io/todo'
+
