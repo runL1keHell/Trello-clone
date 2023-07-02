@@ -1,4 +1,4 @@
-
+import { BUTTON_TITLES } from "../../constants/constants";
 // document.addEventListener("DOMContentLoaded", function(){   
 //   let scrollbar = document.body.clientWidth - window.innerWidth + 'px';
 //     document.querySelector('[href="#openModal"]').addEventListener('click',function(){
@@ -41,11 +41,9 @@
         
               </select>
 
-              <div class="button" id="close2">Cancel</div>
+              <div class="button" id="close2">${BUTTON_TITLES.cancel}</div>
 
-              <div class="button" id="confirmButton">
-                Confirm
-              </div>
+              <div class="button" id="confirmButton">${BUTTON_TITLES.confirm}</div>
               
             </div>
           </div>

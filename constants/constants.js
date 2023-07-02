@@ -26,7 +26,7 @@ export const ERROR_TITLE = {
 };
 
 export const WARNING_LIMIT_INPROGRESS = {
-    warningText: "There are `${CARDS_LIMIT_INPROGRESS}` tasks In Progress already. Do you confirm adding one more?"
+    warningText: `There are ${CARDS_LIMIT_INPROGRESS} tasks In Progress already. Do you confirm adding one more?`
 };
 
 export const WARNING_DELETE_ALL_CARDS = {

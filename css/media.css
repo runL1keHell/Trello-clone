@@ -1,39 +1,76 @@
-/* Глобальные стили */
+@import url(../components/time/time.css);
 
-/* Установите box-sizing в border-box, чтобы включить отступы и границы в общую ширину элемента */
+@import url(../components/card/card.css);
+@import url(../components/button/button.css);
+@import url(../components/button-move/button-move.css);
+@import url(../components/input/input.css);
+@import url(../components/textarea/textarea.css);
+@import url(../components/dropdown/dropdown.css);
+
+@import url(../components/modal/modal.css);
+
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
-/* Сбросить отступы и отступы */
-body,
-h1,
-h2,
-h3,
-p,
-ul,
-li {
-  margin: 0;
-  padding: 0;
-}
-
-/* Адаптивные стили */
-
-/* Дополнительные стили для планшета */
 @media only screen and (max-width: 770px) {
+  #timestamp {
+    font-size: 18px;
+  }
 
   .column {
     flex-basis: 80%;
     margin-top: 50px;
   }
 
+  .input-title {
+    width: 100%;
+  }
+  
+  .input-textarea {
+    width: 100%;
+  }
+
+
 }
 
-/* Дополнительные стили для мобильного устройства */
 @media only screen and (max-width: 480px) {
-  /* Ширина колонок на мобильном устройстве */
+
   .column {
     flex-basis: 100%;
     margin: 0 10px 20px;
+  }
+  
+  .header {
+    flex-direction: column;
+  }
+
+  .logo img {
+    display: flex;
+    margin: auto;
+    margin-bottom: 15px;
+  }
+
+  /* .input-title {
+    width: 100%;
+  }
+  
+  .input-textarea {
+    width: 100%;
+  } */
+
+  .modal-buttons {
+    flex-direction: column;
+  }  
+
+  .input-select {
+    width: 100%;
+    text-align: center;
+  }
+
+  .button {
+    text-align: center;
   }
 }

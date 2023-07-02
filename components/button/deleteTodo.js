@@ -1,6 +1,7 @@
 import { countCards } from "../card/countCards";
 import { modalStyling } from "../modal/modal.js";
 import { appendWarningModal, modalSmStyling } from "../modal/modalWarnings.js";
+import { WARNING_DELETE_ALL_CARDS } from "../../constants/constants";
 
 (() => {
     const todoColumn = document.getElementById('todoColumn');
@@ -33,7 +34,7 @@ import { appendWarningModal, modalSmStyling } from "../modal/modalWarnings.js";
 
    const deleteAll = document.getElementById('DeleteAll'); 
    deleteAll.addEventListener('click', (e) => {
-         appendWarningModal();         
+         appendWarningModal(WARNING_DELETE_ALL_CARDS.warningText);         
          modalStyling('small');
          const confirmDelAllBtn = document.getElementById('confirmButton');
          confirmDelAllBtn.addEventListener('click', () => {
