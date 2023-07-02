@@ -1,0 +1,37 @@
+name: CI/CD
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: SSH into VM and perform actions
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.ALIBABAHOSTNAME }}
+        username: ${{ secrets.ALIBABAUSERNAME }}
+        password: ${{ secrets.ALIBABAUSERPASSWORD }}
+        script: |
+          # Chage directory
+          cd $HOME/Oleg/Trello-clone
+
+          # GIT
+          git checkout dev
+          git pull
+          
+          #DOCKER
+          docker ps -a
+          docker stop oleg-trello-container
+          
+          # UP
+          cd $HOME/Oleg/Trello-clone
+          docker build -t oleg-trello .
+          docker run -p 1234:1234 --name oleg-trello-container oleg-trello
