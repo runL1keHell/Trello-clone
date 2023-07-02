@@ -30,6 +30,7 @@ jobs:
           #DOCKER
           docker ps -a
           docker stop oleg-trello-container
+          docker rm oleg-trello-container
           
           # UP
           cd $HOME/Oleg/Trello-clone
