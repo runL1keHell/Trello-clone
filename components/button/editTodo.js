@@ -1,6 +1,7 @@
 import { appendModal, modalStyling, closeModal } from "../modal/modal";
 import { getUsers } from "../users/users";
 import { remoteUsersCount } from "../../constants/constants.js";
+import { edit_MOCK_API_todo } from "../../main.js";
 
 const todoColumn = document.getElementById('todoColumn');
 
@@ -32,8 +33,10 @@ todoColumn.addEventListener('click', (e) => {
             } else {
                redefineValues(elementToEdit); 
                localStorage.setItem('trelloKey', JSON.stringify(localStorageArr));
+               // edit_MOCK_API_todo(storageIndexOfElement + 1, elementToEdit.title, elementToEdit.desc, elementToEdit.user, true);
                closeModal();
                location.reload();
+               
             };    
          };  
       });
@@ -47,8 +50,10 @@ todoColumn.addEventListener('click', (e) => {
          } else {
             redefineValues(elementToEdit);
             localStorage.setItem('trelloKey', JSON.stringify(localStorageArr));
+            // edit_MOCK_API_todo(storageIndexOfElement + 1, elementToEdit.title, elementToEdit.desc, elementToEdit.user, true);
             closeModal();
             location.reload();
+            
          }         
       })
    };

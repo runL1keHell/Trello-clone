@@ -12,7 +12,7 @@ import './components/users/users.js';
 import { addLocalStorageTodo, renderTodo } from './components/button/addToDo.js'
 import { MOCK_API } from './constants/constants.js'
 
-(function getMocki() {
+(function getMockAPI() {
 fetch(MOCK_API, {
   method: 'GET',
   headers: {'content-type':'application/json'},
@@ -37,9 +37,46 @@ fetch(MOCK_API, {
 
 // export function setMocki() {
    
-    
-    
-       
+ 
+export function addMock_API_todo(id, title, desc, user, date, classEdit) {
+  const newTask = {
+    id: id,
+    title: title,
+    desc: desc,
+    user: user,
+    date: date,
+    edited: classEdit
+    };
+
+  fetch(MOCK_API, {
+    method: 'POST',
+    headers: {'content-type':'application/json'},
+    // Send your data in the request body as JSON
+    body: JSON.stringify(newTask)
+    }); 
+
+}
+
+export function delete_MOCK_API_todo(param) {
+  fetch(`${MOCK_API}/${param}`, {
+    method: 'DELETE',
+  }
+)};
+ 
+export function edit_MOCK_API_todo(param, title, desc, user, classEdit) {
+  const editTask = {
+    title: title,
+    desc: desc,
+    user: user,
+    edited: classEdit
+    };
+  fetch(`${MOCK_API}/${param}`, {
+    method: 'PUT', // or PATCH
+    headers: {'content-type':'application/json'},
+    body: JSON.stringify(editTask)
+  }
+)};
+        
 
 
 

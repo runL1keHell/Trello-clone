@@ -2,6 +2,7 @@ import { countCards } from "../card/countCards";
 import { modalStyling } from "../modal/modal.js";
 import { appendWarningModal, modalSmStyling } from "../modal/modalWarnings.js";
 import { WARNING_DELETE_ALL_CARDS } from "../../constants/constants";
+import { delete_MOCK_API_todo } from '../../main.js'
 
 (() => {
     const todoColumn = document.getElementById('todoColumn');
@@ -14,6 +15,7 @@ import { WARNING_DELETE_ALL_CARDS } from "../../constants/constants";
          todoToRemove.remove();
          localStorageArr[0].splice(storageIndexOfElement, 1);
          localStorage.setItem('trelloKey', JSON.stringify(localStorageArr));
+         delete_MOCK_API_todo(storageIndexOfElement + 1);
          countCards();
       };
    });
