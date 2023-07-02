@@ -1,4 +1,9 @@
+
 import { BUTTON_TITLES } from "../../constants/constants";
+
+// import { formInput } from "../input/input-validation.js";
+// если раскоментить, то ломается добавление целиком, не вызывается модалка на создание/редактирование
+
 // document.addEventListener("DOMContentLoaded", function(){   
 //   let scrollbar = document.body.clientWidth - window.innerWidth + 'px';
 //     document.querySelector('[href="#openModal"]').addEventListener('click',function(){
@@ -31,7 +36,7 @@ import { BUTTON_TITLES } from "../../constants/constants";
 
           <div>
 
-            <input type="text" class="input-title" id="inputTitle" placeholder="Enter title" autofocus required>
+            <input type="text" class="input-title" id="inputTitle" placeholder="Enter title" minlength="2" maxlength="32" required>
             
             <input type="textarea" class="input-textarea" id="inputTextarea" placeholder="Description" maxlength="200">
         

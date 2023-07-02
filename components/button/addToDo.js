@@ -4,7 +4,6 @@ import { modalStyling, closeModal, appendModal } from '../modal/modal.js'
 import { getUsers } from "../users/users.js";
 import { remoteUsersCount } from "../../constants/constants.js";
 
-
 (() => {
 
    const addTodo = document.getElementById('addTodo');
@@ -30,7 +29,6 @@ import { remoteUsersCount } from "../../constants/constants.js";
       });
    });
 })();
-
 
 function appendTodo() {
    const id = Math.random(); 
