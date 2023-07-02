@@ -2,6 +2,7 @@ import { countCards } from "../card/countCards.js";
 import { modalStyling, closeModal, appendModal} from '../modal/modal.js';
 import { renderTodo } from "../button/addToDo.js";
 import { appendWarningModal, modalSmStyling } from "../modal/modalWarnings.js";
+import { WARNING_LIMIT_INPROGRESS } from "../../constants/constants";
 
 
 
@@ -20,7 +21,7 @@ todoColumn.addEventListener('click', (e) => {
         renderTodo();
         location.reload();      
        } else {
-        appendWarningModal();
+        appendWarningModal(WARNING_LIMIT_INPROGRESS.warningText);
         modalStyling('small');
         const confirmDelAllBtn = document.getElementById('confirmButton');
         confirmDelAllBtn.addEventListener('click', () => {

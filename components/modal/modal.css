@@ -1,6 +1,3 @@
-/* https://itchief.ru/html-and-css/modal */
-/* полностью сторонний код, в перемешку идут еще и правила @media, надо бы в отдельный файл по уму вынести */
-
 .modal {
     position: fixed;
     top: 0;
@@ -19,24 +16,10 @@
     padding: 0;
 }
 
-/* при отображении модального окно */
-/* .modal:target {
-    opacity: 1; /* делаем окно видимым */
-	/* pointer-events: auto;  */
-    /* элемент видим для событий мыши */
-    /* overflow-y: auto;  */
-    
-    /* добавляем прокрутку по y, когда элемент не помещается на страницу */
-/* } */
-/* ширина модального окна и его отступы от экрана */
 .modal-dialog {
     position: relative;
     width: auto;
     margin: 10px;
-}
-
-.modal-dialog-sm {
-    width: 30vw;
 }
 
 @media (min-width: 576px) {
@@ -44,6 +27,7 @@
       max-width: 500px;
       margin: 30px auto; /* для отображения модального окна по центру */
   }
+
 }
 /* свойства для блока, содержащего контент модального окна */ 
 .modal-content {
@@ -66,11 +50,14 @@
 }
 
 .modal-cont-sm {
-    
     background-color:#d5e8d4;
     border-radius: .3rem;
-   
 }
+
+.modal-warining-text {
+    text-align: center;
+}
+
 @media (min-width: 768px) {
   .modal-content {
       -webkit-box-shadow: 0 5px 15px rgba(0,0,0,.5);
@@ -137,11 +124,19 @@
 }
 .modal-buttons {
     display: flex;
-    flex-direction: row;
-    
 }
 
 .modal-buttons-sm {
     justify-content: center;
 }
+@media (max-width: 480px) {
+    .modal-buttons {
+        flex-direction: column;
+    };
+    
+    .input-select {
+    width: 00%;
+    margin: 10px auto;
+    }; 
 
+  }

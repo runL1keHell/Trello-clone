@@ -1,7 +1,8 @@
+
+import { BUTTON_TITLES } from "../../constants/constants";
+
 // import { formInput } from "../input/input-validation.js";
 // если раскоментить, то ломается добавление целиком, не вызывается модалка на создание/редактирование
-
-
 
 // document.addEventListener("DOMContentLoaded", function(){   
 //   let scrollbar = document.body.clientWidth - window.innerWidth + 'px';
@@ -45,11 +46,9 @@
         
               </select>
 
-              <div class="button" id="close2">Cancel</div>
+              <div class="button" id="close2">${BUTTON_TITLES.cancel}</div>
 
-              <div class="button" id="confirmButton">
-                Confirm
-              </div>
+              <div class="button" id="confirmButton">${BUTTON_TITLES.confirm}</div>
               
             </div>
           </div>
