@@ -140,29 +140,36 @@ function addLocalStorageTodo (id, title, desc, user, date, edit) {
 export function renderTodo() {    
    const localStorageArr = JSON.parse(localStorage.getItem('trelloKey'));
    if (!localStorageArr[0]) return;
-   localStorageArr[0].forEach(element => {      
-      const todoColumn = document.getElementById('todoColumn');
-      let newTodo;
-      if (element.edited) {
-         newTodo = returnHTML(element.id, element.title, element.desc, element.user, element.date, 'card-edited')
-      } else {
-         newTodo = returnHTML(element.id, element.title, element.desc, element.user, element.date, '')
-      }
-      todoColumn.innerHTML =  todoColumn.innerHTML + newTodo;     
+   localStorageArr[0].forEach(element => {   
+      if (!document.getElementById(element.id)) {
+         const todoColumn = document.getElementById('todoColumn');
+         let newTodo;
+         if (element.edited) {
+            newTodo = returnHTML(element.id, element.title, element.desc, element.user, element.date, 'card-edited')
+         } else {
+            newTodo = returnHTML(element.id, element.title, element.desc, element.user, element.date, '')
+         }
+         todoColumn.innerHTML =  todoColumn.innerHTML + newTodo;     
 
-      countCards();
+         countCards();  
+      }  
+      
    });
    localStorageArr[1].forEach(element => {
-      const todoInProgress = document.getElementById('todoInProgress');
-      const newTodoColumn2 = returnHTML_inprogress(element.id, element.title, element.desc, element.user, element.date, element.edit)
-      todoInProgress.innerHTML = todoInProgress.innerHTML + newTodoColumn2;
-      countCards();
+      if (!document.getElementById(element.id)) {
+         const todoInProgress = document.getElementById('todoInProgress');
+         const newTodoColumn2 = returnHTML_inprogress(element.id, element.title, element.desc, element.user, element.date, element.edit)
+         todoInProgress.innerHTML = todoInProgress.innerHTML + newTodoColumn2;
+         countCards();
+      }
    })
    localStorageArr[2].forEach(element => {
-      const todoDone = document.getElementById('todoDone');
-      const newTodoColumn3 = returnHTML_done(element.id, element.title, element.desc, element.user, element.date, element.edit)
-      todoDone.innerHTML = todoDone.innerHTML + newTodoColumn3;
-      countCards();
+      if (!document.getElementById(element.id)) {
+         const todoDone = document.getElementById('todoDone');
+         const newTodoColumn3 = returnHTML_done(element.id, element.title, element.desc, element.user, element.date, element.edit)
+         todoDone.innerHTML = todoDone.innerHTML + newTodoColumn3;
+         countCards();
+      }
    })
 }
 
