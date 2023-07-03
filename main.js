@@ -152,7 +152,7 @@ export function edit_MOCK_API(MOCK_API, param, targetId, title, desc, user, edit
         body: JSON.stringify({title: title, desc: desc, user: user, edited: edited})        
       }).then(res => {
         if (res.ok) {
-          location.reload(); 
+          // location.reload(); 
         }
        })
       }).catch(error => {

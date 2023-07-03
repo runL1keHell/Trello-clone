@@ -28,13 +28,10 @@ todoColumn.addEventListener('click', (e) => {
             if (document.getElementById('inputTitle').value === elementToEdit.title &&
             document.getElementById('inputTextarea').value === elementToEdit.desc &&
             document.getElementById('inputSelect').value === elementToEdit.user) {
-               console.log('нахожусь в ифе');
                closeModal();
             } else {
-               console.log('зашел в елс');
                redefineValues(elementToEdit); 
                localStorage.setItem('trelloKey', JSON.stringify(localStorageArr));
-               console.log(localStorageArr[0]);
                edit_MOCK_API(MOCK_API1, 'todo', targetId, elementToEdit.title, elementToEdit.desc, elementToEdit.user, elementToEdit.edited);
                closeModal();
                                          
@@ -64,4 +61,6 @@ function redefineValues(element) {
    element.desc = document.getElementById('inputTextarea').value;
    element.user = document.getElementById('inputSelect').value; 
    element.edited = true;  
+   const elementInHtml = document.getElementById(element.id);
+   elementInHtml.classList.add('card-edited')
 }

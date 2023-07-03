@@ -1,5 +1,5 @@
 import { countCards } from "../card/countCards";
-import { modalStyling } from "../modal/modal.js";
+import { closeModal, modalStyling } from "../modal/modal.js";
 import { appendWarningModal, modalSmStyling } from "../modal/modalWarnings.js";
 import { MOCK_API1, MOCK_API2, WARNING_DELETE_ALL_CARDS } from "../../constants/constants";
 import { delete_MOCK_API, delete_ALL_MOCK_API} from '../../main.js'
@@ -44,9 +44,12 @@ import { delete_MOCK_API, delete_ALL_MOCK_API} from '../../main.js'
             confirmDelAllBtn.addEventListener('click', () => {
                const localStorageArr = JSON.parse(localStorage.getItem('trelloKey'));
                const len = localStorageArr[2].length;
-               console.log(len);
+               // console.log(len);
                localStorageArr[2].splice(0);
                localStorage.setItem('trelloKey', JSON.stringify(localStorageArr));
+               let doneColumn = document.getElementById('todoDone');
+               doneColumn.innerHTML = '';
+               closeModal();
                for (let i = 1; i <= len; i++) {
                   delete_ALL_MOCK_API(MOCK_API2, 'done', i)
                };            
