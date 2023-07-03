@@ -15,7 +15,7 @@ import { delete_MOCK_API_todo } from '../../main.js'
          todoToRemove.remove();
          localStorageArr[0].splice(storageIndexOfElement, 1);
          localStorage.setItem('trelloKey', JSON.stringify(localStorageArr));
-         delete_MOCK_API_todo(storageIndexOfElement + 1);
+         delete_MOCK_API_todo(targetId);
          countCards();
       };
    });
@@ -36,18 +36,19 @@ import { delete_MOCK_API_todo } from '../../main.js'
 
    const deleteAll = document.getElementById('DeleteAll'); 
    deleteAll.addEventListener('click', (e) => {
-         appendWarningModal(WARNING_DELETE_ALL_CARDS.warningText);         
-         modalStyling('small');
-         const confirmDelAllBtn = document.getElementById('confirmButton');
-         confirmDelAllBtn.addEventListener('click', () => {
+         if (document.getElementById('done-counter').textContent > 0) {
+            appendWarningModal(WARNING_DELETE_ALL_CARDS.warningText);         
+            modalStyling('small');
+            const confirmDelAllBtn = document.getElementById('confirmButton');
+            confirmDelAllBtn.addEventListener('click', () => {
             const localStorageArr = JSON.parse(localStorage.getItem('trelloKey'));
             localStorageArr[2].splice(0);
             localStorage.setItem('trelloKey', JSON.stringify(localStorageArr));
             countCards();
             location.reload();  
          })
-      
-   });
-   
+         }
+              
+   });   
 
 })();

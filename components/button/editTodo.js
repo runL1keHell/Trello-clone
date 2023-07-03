@@ -33,7 +33,8 @@ todoColumn.addEventListener('click', (e) => {
             } else {
                redefineValues(elementToEdit); 
                localStorage.setItem('trelloKey', JSON.stringify(localStorageArr));
-               // edit_MOCK_API_todo(storageIndexOfElement + 1, elementToEdit.title, elementToEdit.desc, elementToEdit.user, true);
+               console.log(document.getElementById('inputTitle').value);
+               edit_MOCK_API_todo(storageIndexOfElement + 1, document.getElementById('inputTitle').value, document.getElementById('inputTextarea').value, document.getElementById('inputSelect').value, true);
                closeModal();
                location.reload();
                
@@ -50,7 +51,7 @@ todoColumn.addEventListener('click', (e) => {
          } else {
             redefineValues(elementToEdit);
             localStorage.setItem('trelloKey', JSON.stringify(localStorageArr));
-            // edit_MOCK_API_todo(storageIndexOfElement + 1, elementToEdit.title, elementToEdit.desc, elementToEdit.user, true);
+            edit_MOCK_API_todo(storageIndexOfElement + 1, document.getElementById('inputTitle').value, document.getElementById('inputTextarea').value, document.getElementById('inputSelect').value, true);
             closeModal();
             location.reload();
             
