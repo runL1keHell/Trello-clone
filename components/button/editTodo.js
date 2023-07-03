@@ -1,6 +1,8 @@
 import { appendModal, modalStyling, closeModal } from "../modal/modal";
 import { getUsers } from "../users/users";
-import { remoteUsersCount } from "../../constants/constants.js";
+import { MOCK_API1, remoteUsersCount } from "../../constants/constants.js";
+import { edit_MOCK_API } from "../../main.js";
+import { renderTodo } from "./addToDo";
 
 const todoColumn = document.getElementById('todoColumn');
 
@@ -21,8 +23,6 @@ todoColumn.addEventListener('click', (e) => {
 
       const modal = document.querySelector('.modal-dialog')
 
-
-
       modal.addEventListener('keydown', (e) => {
          if (e.keyCode === 13) {
             if (document.getElementById('inputTitle').value === elementToEdit.title &&
@@ -32,8 +32,9 @@ todoColumn.addEventListener('click', (e) => {
             } else {
                redefineValues(elementToEdit); 
                localStorage.setItem('trelloKey', JSON.stringify(localStorageArr));
+               edit_MOCK_API(MOCK_API1, 'todo', targetId, elementToEdit.title, elementToEdit.desc, elementToEdit.user, elementToEdit.edited);
                closeModal();
-               location.reload();
+                                         
             };    
          };  
       });
@@ -47,8 +48,9 @@ todoColumn.addEventListener('click', (e) => {
          } else {
             redefineValues(elementToEdit);
             localStorage.setItem('trelloKey', JSON.stringify(localStorageArr));
-            closeModal();
-            location.reload();
+            edit_MOCK_API(MOCK_API1, 'todo', targetId, elementToEdit.title, elementToEdit.desc, elementToEdit.user, elementToEdit.edited);
+            closeModal();          
+            
          }         
       })
    };
@@ -59,4 +61,6 @@ function redefineValues(element) {
    element.desc = document.getElementById('inputTextarea').value;
    element.user = document.getElementById('inputSelect').value; 
    element.edited = true;  
+   const elementInHtml = document.getElementById(element.id);
+   elementInHtml.classList.add('card-edited')
 }

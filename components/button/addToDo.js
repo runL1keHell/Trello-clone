@@ -3,6 +3,8 @@ import { countCards } from "../card/countCards.js";
 import { modalStyling, closeModal, appendModal } from '../modal/modal.js'
 import { getUsers } from "../users/users.js";
 import { remoteUsersCount } from "../../constants/constants.js";
+import { MOCK_API1, MOCK_API2 } from '../../constants/constants.js';
+import { addMock_API } from '../../main.js'
 
 (() => {
 
@@ -40,7 +42,11 @@ function appendTodo() {
    const todoColumn = document.getElementById('todoColumn');
    const newTodo = returnHTML(id, inputTitle.value, description.value, inputSelect.value, time, '');
    todoColumn.innerHTML =  todoColumn.innerHTML + newTodo;
-
+   
+   
+   
+   addMock_API(MOCK_API1,'todo', id, inputTitle.value, description.value, inputSelect.value, time, false)
+   
    addLocalStorageTodo(id, inputTitle.value, description.value, inputSelect.value, time, false);
 };
 
@@ -127,6 +133,7 @@ function addLocalStorageTodo (id, title, desc, user, date, edit) {
    });
 
    localStorage.setItem('trelloKey', JSON.stringify(localStorageArr));   
+
 };
 
 
@@ -158,6 +165,6 @@ export function renderTodo() {
       countCards();
    })
 }
-   
+
 
 
