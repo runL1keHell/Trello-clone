@@ -10,10 +10,10 @@ import './components/button-move/moveTodo.js';
 import './components/users/users.js';
 
 import { addLocalStorageTodo, renderTodo } from './components/button/addToDo.js'
-import { MOCK_API } from './constants/constants.js'
+import { MOCK_API1, MOCK_API2 } from './constants/constants.js'
 
-(function getMockAPI() {
-fetch(MOCK_API, {
+function getMockAPI(MOCK_API, param) {
+fetch(`${MOCK_API}/${param}`, {
   method: 'GET',
   headers: {'content-type':'application/json'},
 }).then(res => {
@@ -25,7 +25,7 @@ fetch(MOCK_API, {
     const localStorageArr = JSON.parse(localStorage.getItem('trelloKey'));
     localStorageArr[0] = task;
     localStorage.setItem('trelloKey', JSON.stringify(localStorageArr));   
-   
+    
   // Do something with the list of tasks
 
 //  
@@ -33,12 +33,14 @@ fetch(MOCK_API, {
   // handle error
   console.log('Ошибка получения данных');
 })
-})();
+};
+getMockAPI(MOCK_API1, 'todo');
+getMockAPI(MOCK_API1, 'progress');
+getMockAPI(MOCK_API2, 'done');
 
-// export function setMocki() {
-   
- 
-export function addMock_API_todo(id, title, desc, user, date, classEdit) {
+
+
+export function addMock_API(MOCK_API, param, id, title, desc, user, date, classEdit) {
   const newTask = {
     id: id,
     title: title,
@@ -48,17 +50,32 @@ export function addMock_API_todo(id, title, desc, user, date, classEdit) {
     edited: classEdit
     };
 
-  fetch(MOCK_API, {
+  fetch(`${MOCK_API}/${param}`, {
     method: 'POST',
     headers: {'content-type':'application/json'},
     // Send your data in the request body as JSON
     body: JSON.stringify(newTask)
+    }).then(res => {
+      if (res.ok) {
+          return res.json();
+      }
+      // handle error
+    }).then(task => {
+        console.log('Добавляю в моки');
+        // location.reload();  
+        
+      // Do something with the list of tasks
+    
+    //  
+    }).catch(error => {
+      // handle error      
     }); 
 
-}
+};
 
-export function delete_MOCK_API_todo(targetId) {
-  const url = new URL(MOCK_API);
+
+export function delete_MOCK_API(MOCK_API, param, targetId) {
+  const url = new URL(`${MOCK_API}/${param}`);
   url.searchParams.append('id', targetId);
   
 fetch(url, {
@@ -66,44 +83,86 @@ fetch(url, {
   headers: {'content-type':'application/json'},
 }).then(res => {
   if (res.ok) {
-      return res.json();
-  }
+    return res.json();
+}
   // handle error
 }).then(tasks => {
-     fetch(`${MOCK_API}/${tasks[0].mocapi_id}`, {
-    method: 'DELETE',
-  });
-
-  // mockapi returns only tasks that match `hello` string
+     fetch(`${MOCK_API}/${param}/${tasks[0].mocapi_id}`, {
+       method: 'DELETE',
+  }).then(res => {
+    if (res.ok) {
+        return res.json();
+    }
+    // handle error
+  }).then(task => {
+    console.log('Удаляю из МОКИ');
+      // location.reload();  
+      
+    // Do something with the list of tasks
+  
+  //  
+  })
 }).catch(error => {
   // handle error
 });
 
 };
- 
-export function edit_MOCK_API_todo(param, title, desc, user, classEdit) {
-  fetch(`${MOCK_API}/${param}`, {
-    method: 'PUT', // or PATCH
-    headers: {'content-type':'application/json'},
-    // body: JSON.stringify({title}, {desc}, {user}, {edited: true})
-    body: JSON.stringify({title: title, desc: desc, user: user, edited: true})
-  });
-};
+
+
+export function delete_ALL_MOCK_API(MOCK_API, param, number) {
   
-//   .then(res => {
-//     if (res.ok) {
-//         return res.json();
-//         // console.log('123');
-//     }
-//     // handle error
-//   }).then(task => {
-//     // console.log(task);
-//     // Do something with updated task
-//   }).catch(error => {
-//     // handle error
-//   })
-// };
+  fetch(`${MOCK_API}/${param}/${number}`, {
+       method: 'DELETE',
+  }).then(res => {
+    if (res.ok) {
+        return res.json();
+    }
+    // handle error
+  }).then(task => {
+    console.log('Удаляю dct из МОКИ');
+      // location.reload();  
+      
+    // Do something with the list of tasks
+  
+  //  
+  }).catch(error => {
+  // handle error
+});
+
+};
+ 
+export function edit_MOCK_API(MOCK_API, param, targetId, title, desc, user, edited) {
+  const url = new URL(`${MOCK_API}/${param}`);
+  url.searchParams.append('id', targetId);
+  
+  fetch(url, {
+    method: 'GET',
+    headers: {'content-type':'application/json'},
+  }).then(res => {
+    if (res.ok) {
+        return res.json();
         
+    }
+    // handle error
+  }).then(tasks => {
+      fetch(`${MOCK_API}/${param}/${tasks[0].mocapi_id}`, {
+        method: 'PUT', // or PATCH
+        headers: {'content-type':'application/json'},
+        // body: JSON.stringify({title}, {desc}, {user}, {edited: true})
+        body: JSON.stringify({title: title, desc: desc, user: user, edited: edited})        
+      }).then(res => {
+        if (res.ok) {
+          location.reload(); 
+        }
+       })
+      }).catch(error => {
+        console.log('error');
+    // handle error
+    });  
+};
+
+
+
 
 
 

@@ -1,8 +1,8 @@
 import { countCards } from "../card/countCards";
 import { modalStyling } from "../modal/modal.js";
 import { appendWarningModal, modalSmStyling } from "../modal/modalWarnings.js";
-import { WARNING_DELETE_ALL_CARDS } from "../../constants/constants";
-import { delete_MOCK_API_todo } from '../../main.js'
+import { MOCK_API1, MOCK_API2, WARNING_DELETE_ALL_CARDS } from "../../constants/constants";
+import { delete_MOCK_API, delete_ALL_MOCK_API} from '../../main.js'
 
 (() => {
     const todoColumn = document.getElementById('todoColumn');
@@ -15,7 +15,7 @@ import { delete_MOCK_API_todo } from '../../main.js'
          todoToRemove.remove();
          localStorageArr[0].splice(storageIndexOfElement, 1);
          localStorage.setItem('trelloKey', JSON.stringify(localStorageArr));
-         delete_MOCK_API_todo(targetId);
+         delete_MOCK_API(MOCK_API1, 'todo', targetId);
          countCards();
       };
    });
@@ -30,6 +30,7 @@ import { delete_MOCK_API_todo } from '../../main.js'
          todoToRemove.remove();
          localStorageArr[2].splice(storageIndexOfElement, 1);
          localStorage.setItem('trelloKey', JSON.stringify(localStorageArr));
+         delete_MOCK_API(MOCK_API2, 'done', targetId)
          countCards();
       };
    });
@@ -41,11 +42,16 @@ import { delete_MOCK_API_todo } from '../../main.js'
             modalStyling('small');
             const confirmDelAllBtn = document.getElementById('confirmButton');
             confirmDelAllBtn.addEventListener('click', () => {
-            const localStorageArr = JSON.parse(localStorage.getItem('trelloKey'));
-            localStorageArr[2].splice(0);
-            localStorage.setItem('trelloKey', JSON.stringify(localStorageArr));
-            countCards();
-            location.reload();  
+               const localStorageArr = JSON.parse(localStorage.getItem('trelloKey'));
+               const len = localStorageArr[2].length;
+               console.log(len);
+               localStorageArr[2].splice(0);
+               localStorage.setItem('trelloKey', JSON.stringify(localStorageArr));
+               for (let i = 1; i <= len; i++) {
+                  delete_ALL_MOCK_API(MOCK_API2, 'done', i)
+               };            
+               countCards();
+            // location.reload();  
          })
          }
               

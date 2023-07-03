@@ -3,8 +3,8 @@ import { countCards } from "../card/countCards.js";
 import { modalStyling, closeModal, appendModal } from '../modal/modal.js'
 import { getUsers } from "../users/users.js";
 import { remoteUsersCount } from "../../constants/constants.js";
-import { MOCK_API } from '../../constants/constants.js';
-import { addMock_API_todo } from '../../main.js'
+import { MOCK_API1, MOCK_API2 } from '../../constants/constants.js';
+import { addMock_API } from '../../main.js'
 
 (() => {
 
@@ -45,7 +45,7 @@ function appendTodo() {
    
    
    
-   addMock_API_todo(id, inputTitle.value, description.value, inputSelect.value, time, false)
+   addMock_API(MOCK_API1,'todo', id, inputTitle.value, description.value, inputSelect.value, time, false)
    
    addLocalStorageTodo(id, inputTitle.value, description.value, inputSelect.value, time, false);
 };
