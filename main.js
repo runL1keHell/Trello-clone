@@ -178,16 +178,34 @@ export async function delete_MOCK_API(MOCK_API, param, targetId) {
 
 // };
 
-export async function delete_ALL_MOCK_API(MOCK_API, param, number) {
+// export async function delete_ALL_MOCK_API(MOCK_API, param, number) {
   
-  let res = await fetch(`${MOCK_API}/${param}/${number}`, {
-       method: 'DELETE',
-  })
-  if (res.status !== 200) return "Bad response";
-    let result = await response.json()
-    return result  
-};
- 
+//   try {
+//     let res = await fetch(`${MOCK_API}/${param}/${number}`, {
+//        method: 'DELETE',
+//     })
+//   if (res.status !== 200) {
+//     throw new Error('error')
+//   };
+//     let result = await res.json()
+//     return result  
+// }
+//   catch(e) {
+//     console.log('Small error');
+//   }
+// };
+
+export async function delete_ALL_MOCK_API(MOCK_API, param) {
+  const response = await fetch(`${MOCK_API}/${param}`);
+  const doneTodos = await response.json();
+  for (const todo of doneTodos) {
+    let res = await fetch(`${MOCK_API}/${param}/${todo.mocapi_id}`, {
+      method: 'DELETE',
+   })
+  }
+  
+}
+  
 // export function edit_MOCK_API(MOCK_API, param, targetId, title, desc, user, edited) {
 //   const url = new URL(`${MOCK_API}/${param}`);
 //   url.searchParams.append('id', targetId);
@@ -227,13 +245,15 @@ export async function edit_MOCK_API(MOCK_API, param, targetId, title, desc, user
     headers: {'content-type':'application/json'},
   })
   if (res.status !== 200) return "Bad response"; 
-  let tasks = await fetch(`${MOCK_API}/${param}/${tasks[0].mocapi_id}`, {
+  let jsonResponse = await res.json();
+  
+  let tasks = await fetch(`${MOCK_API}/${param}/${jsonResponse[0].mocapi_id}`, {
         method: 'PUT', // or PATCH
         headers: {'content-type':'application/json'},
         // body: JSON.stringify({title}, {desc}, {user}, {edited: true})
         body: JSON.stringify({title: title, desc: desc, user: user, edited: edited})        
       })
-      if (res.ok) return res.json();
+      if (tasks.ok) return tasks.json();
   };
 
 

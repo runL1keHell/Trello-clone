@@ -44,10 +44,11 @@ import { delete_MOCK_API, delete_ALL_MOCK_API} from '../../main.js'
             confirmDelAllBtn.addEventListener('click', () => {
                const localStorageArr = JSON.parse(localStorage.getItem('trelloKey'));
                let countOfTodos = Number(document.getElementById('done-counter').textContent);
-               for (let i = 1; i <= countOfTodos; i++) {
-                  console.log(i);
-                  delete_ALL_MOCK_API(MOCK_API2, 'done', i)
-               };   
+               // for (let i = 1; i <= countOfTodos; i++) {
+               //    delete_ALL_MOCK_API(MOCK_API2, 'done', i)
+               // };   
+               delete_ALL_MOCK_API(MOCK_API2, 'done');
+               
                localStorageArr[2].splice(0);
                localStorage.setItem('trelloKey', JSON.stringify(localStorageArr));
                let doneColumn = document.getElementById('todoDone');
