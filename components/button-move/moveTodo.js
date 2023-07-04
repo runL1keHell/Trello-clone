@@ -3,7 +3,7 @@ import { modalStyling, closeModal, appendModal} from '../modal/modal.js';
 import { renderTodo } from "../button/addToDo.js";
 import { appendWarningModal, modalSmStyling } from "../modal/modalWarnings.js";
 import { MOCK_API1, MOCK_API2, WARNING_LIMIT_INPROGRESS } from "../../constants/constants";
-import { addMock_API, delete_MOCK_API } from "../../main.js";
+import { addMock_API, delete_MOCK_API } from '../API/mockAPI.js'
 
 
 
