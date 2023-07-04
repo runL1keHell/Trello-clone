@@ -45,9 +45,9 @@ function appendTodo() {
    
    
    
-   addMock_API(MOCK_API1,'todo', id, inputTitle.value, description.value, inputSelect.value, time, false)
-   
+   addMock_API(MOCK_API1,'todo', id, inputTitle.value, description.value, inputSelect.value, time, false);
    addLocalStorageTodo(id, inputTitle.value, description.value, inputSelect.value, time, false);
+   closeModal();
 };
 
 
