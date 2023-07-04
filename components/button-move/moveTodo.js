@@ -17,9 +17,8 @@ todoColumn.addEventListener('click', (e) => {
        const elementToMove = localStorageArr[0][storageIndexOfElement];
        if (Number(amountOfCards) < 6) {        
         localStorageArr[1].push(elementToMove);
-        // console.log('Add to LS');
         addMock_API(MOCK_API1, 'progress', elementToMove.id, elementToMove.title, elementToMove.desc, elementToMove.user, elementToMove.date, elementToMove.edited);
-        // console.log('Done');
+        
         localStorageArr[0].splice(storageIndexOfElement, 1);
         // console.log('Delete from LS');
         delete_MOCK_API(MOCK_API1, 'todo', targetId);
@@ -37,18 +36,15 @@ todoColumn.addEventListener('click', (e) => {
         const confirmDelAllBtn = document.getElementById('confirmButton');
         confirmDelAllBtn.addEventListener('click', () => {
             localStorageArr[1].push(elementToMove);
-            localStorageArr[0].splice(storageIndexOfElement, 1);
-            localStorage.setItem('trelloKey', JSON.stringify(localStorageArr));
-            document.getElementById(targetId).remove();
-            renderTodo();
-            // location.reload();  
             addMock_API(MOCK_API1, 'progress', elementToMove.id, elementToMove.title, elementToMove.desc, elementToMove.user, elementToMove.date, elementToMove.edited);
+            localStorageArr[0].splice(storageIndexOfElement, 1);
             delete_MOCK_API(MOCK_API1, 'todo', targetId);
             closeModal();
-            // location.reload();
+            localStorage.setItem('trelloKey', JSON.stringify(localStorageArr));
+            document.getElementById(targetId).remove();
+            renderTodo();            
         })
-       } 
-    // location.reload();    
+       }     
     };
 });
 
