@@ -1,22 +1,6 @@
 
 import { BUTTON_TITLES } from "../../constants/constants";
 
-// import { formInput } from "../input/input-validation.js";
-// если раскоментить, то ломается добавление целиком, не вызывается модалка на создание/редактирование
-
-// document.addEventListener("DOMContentLoaded", function(){   
-//   let scrollbar = document.body.clientWidth - window.innerWidth + 'px';
-//     document.querySelector('[href="#openModal"]').addEventListener('click',function(){
-//       document.body.style.overflow = 'hidden';
-//       document.querySelector('#openModal').style.marginLeft = scrollbar;
-//       });
-    // document.querySelector('[href="#close"]').addEventListener('click',function(){
-    //   document.body.style.overflow = 'visible';
-    //   document.querySelector('#openModal').style.marginLeft = '0px';
-     
-    // });
-  // });
-
   export function appendModal () {
     const modalContainer = document.getElementById('openModal');
     modalContainer.innerHTML = `

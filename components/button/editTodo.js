@@ -2,12 +2,10 @@ import { appendModal, modalStyling, closeModal } from "../modal/modal";
 import { getUsers } from "../users/users";
 import { MOCK_API1, remoteUsersCount } from "../../constants/constants.js";
 import { edit_MOCK_API } from '../API/mockAPI.js';
-import { renderTodo } from "./addToDo";
 
 const todoColumn = document.getElementById('todoColumn');
 
 todoColumn.addEventListener('click', (e) => {
-   // console.log(e.target);
    if (e.target.id.includes("edit")) {
       const localStorageArr = JSON.parse(localStorage.getItem('trelloKey'));
       const targetId = e.target.id.split('-')[1];
