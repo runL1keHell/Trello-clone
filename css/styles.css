@@ -19,16 +19,14 @@
     align-items: center;
     padding: 30px;
     background-color: #e2d5e7;
-    border: 1px solid gray;
-    border-radius: 10px;
+    border-bottom: 1px solid gray;
 }
 .columns {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     height: 550px;
-    margin: 25px 5px 0 20px;
-    
+    margin: 40px;
 }
 
 .column {

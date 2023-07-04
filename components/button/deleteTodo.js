@@ -1,8 +1,8 @@
 import { countCards } from "../card/countCards";
 import { closeModal, modalStyling } from "../modal/modal.js";
 import { appendWarningModal, modalSmStyling } from "../modal/modalWarnings.js";
-import { MOCK_API1, MOCK_API2, WARNING_DELETE_ALL_CARDS } from "../../constants/constants";
-import { delete_MOCK_API, delete_ALL_MOCK_API} from '../../main.js'
+import { MOCK_API1, MOCK_API2, WARNING_DELETE_ALL_CARDS } from "../../constants/constants.js";
+import { delete_MOCK_API, delete_ALL_MOCK_API} from '../API/mockAPI.js'
 
 (() => {
     const todoColumn = document.getElementById('todoColumn');

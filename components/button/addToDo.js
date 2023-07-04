@@ -4,7 +4,7 @@ import { modalStyling, closeModal, appendModal } from '../modal/modal.js'
 import { getUsers } from "../users/users.js";
 import { remoteUsersCount } from "../../constants/constants.js";
 import { MOCK_API1, MOCK_API2 } from '../../constants/constants.js';
-import { addMock_API } from '../../main.js'
+import { addMock_API } from '../API/mockAPI.js'
 
 (() => {
 
@@ -16,17 +16,21 @@ import { addMock_API } from '../../main.js'
 
       const confirmButton = document.getElementById('confirmButton');
       confirmButton.addEventListener('click', () => {
-         appendTodo();
-         countCards();
-         closeModal(); 
+         if (document.getElementById('inputTitle').value) {
+            appendTodo();
+            countCards();
+            closeModal();    
+         };
       });
      
       const modal = document.querySelector('.modal-dialog')
       modal.addEventListener('keydown', (e) => {
          if (e.keyCode === 13) {
-            appendTodo();
-            countCards();
-            closeModal(); 
+            if (document.getElementById('inputTitle').value) {
+               appendTodo();
+               countCards();
+               closeModal();  
+            };
          };    
       });
    });
@@ -63,7 +67,7 @@ function returnHTML(id, title, desc, user, date, classEdit) {
          <div class="card-title">${title}</div>
 
          <div class="card-description">
-            ${desc}
+            <div>${desc}</div>
             <div class="button-move" id="move-${id}"> > </div>
 
          </div>
@@ -152,8 +156,7 @@ export function renderTodo() {
          todoColumn.innerHTML =  todoColumn.innerHTML + newTodo;     
 
          countCards();  
-      }  
-      
+      };
    });
    localStorageArr[1].forEach(element => {
       if (!document.getElementById(element.id)) {
@@ -161,17 +164,16 @@ export function renderTodo() {
          const newTodoColumn2 = returnHTML_inprogress(element.id, element.title, element.desc, element.user, element.date, element.edit)
          todoInProgress.innerHTML = todoInProgress.innerHTML + newTodoColumn2;
          countCards();
-      }
-   })
+      };
+   });
    localStorageArr[2].forEach(element => {
       if (!document.getElementById(element.id)) {
          const todoDone = document.getElementById('todoDone');
          const newTodoColumn3 = returnHTML_done(element.id, element.title, element.desc, element.user, element.date, element.edit)
          todoDone.innerHTML = todoDone.innerHTML + newTodoColumn3;
          countCards();
-      }
-   })
-}
-
+      };
+   });
+};
 
 

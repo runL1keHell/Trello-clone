@@ -63,7 +63,8 @@ import { BUTTON_TITLES } from "../../constants/constants";
     const modalWindow = document.getElementById('openModal');
     modalWindow.style.opacity = 1;
     modalWindow.style.pointerEvents = 'auto';
-    modalWindow.style.overflowY = 'auto';   
+    modalWindow.style.overflowY = 'auto'; 
+    document.body.style.overflow = 'hidden';  
 
     const closeByCancel = document.getElementById('close2');
     closeByCancel.addEventListener('click', closeModal);
@@ -106,7 +107,8 @@ export function closeModal() {
    const modalWindow = document.getElementById('openModal');
    modalWindow.style.opacity = 0;
    modalWindow.style.pointerEvents = 'none';
-   modalWindow.style.overflowY = 'none';   
+   modalWindow.style.overflowY = 'none'; 
+   document.body.style.overflow = 'visible';  
   
   if (document.getElementById('inputTitle')) {
     document.getElementById('inputTitle').value = '';

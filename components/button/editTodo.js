@@ -1,7 +1,7 @@
 import { appendModal, modalStyling, closeModal } from "../modal/modal";
 import { getUsers } from "../users/users";
 import { MOCK_API1, remoteUsersCount } from "../../constants/constants.js";
-import { edit_MOCK_API } from "../../main.js";
+import { edit_MOCK_API } from '../API/mockAPI.js';
 import { renderTodo } from "./addToDo";
 
 const todoColumn = document.getElementById('todoColumn');
@@ -30,11 +30,12 @@ todoColumn.addEventListener('click', (e) => {
             document.getElementById('inputSelect').value === elementToEdit.user) {
                closeModal();
             } else {
-               redefineValues(elementToEdit); 
+               if (document.getElementById('inputTitle').value) {
+                 redefineValues(elementToEdit); 
                localStorage.setItem('trelloKey', JSON.stringify(localStorageArr));
                edit_MOCK_API(MOCK_API1, 'todo', targetId, elementToEdit.title, elementToEdit.desc, elementToEdit.user, elementToEdit.edited);
-               closeModal();
-                                         
+               closeModal(); 
+               };                                    
             };    
          };  
       });
@@ -46,13 +47,14 @@ todoColumn.addEventListener('click', (e) => {
          document.getElementById('inputSelect').value === elementToEdit.user) {
             closeModal();
          } else {
-            redefineValues(elementToEdit);
-            localStorage.setItem('trelloKey', JSON.stringify(localStorageArr));
-            edit_MOCK_API(MOCK_API1, 'todo', targetId, elementToEdit.title, elementToEdit.desc, elementToEdit.user, elementToEdit.edited);
-            closeModal();          
-            
-         }         
-      })
+            if (document.getElementById('inputTitle').value) {
+               redefineValues(elementToEdit);
+               localStorage.setItem('trelloKey', JSON.stringify(localStorageArr));
+               edit_MOCK_API(MOCK_API1, 'todo', targetId, elementToEdit.title, elementToEdit.desc, elementToEdit.user, elementToEdit.edited);
+               closeModal();   
+            };
+         };        
+      });
    };
 });
 
