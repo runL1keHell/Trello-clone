@@ -44,6 +44,7 @@ todoColumn.addEventListener('click', (e) => {
             // location.reload();  
             addMock_API(MOCK_API1, 'progress', elementToMove.id, elementToMove.title, elementToMove.desc, elementToMove.user, elementToMove.date, elementToMove.edited);
             delete_MOCK_API(MOCK_API1, 'todo', targetId);
+            closeModal();
             // location.reload();
         })
        } 
