@@ -67,7 +67,7 @@ function returnHTML(id, title, desc, user, date, classEdit) {
          <div class="card-title">${title}</div>
 
          <div class="card-description">
-            <div>${desc}</div>
+            ${desc}
             <div class="button-move" id="move-${id}"> > </div>
 
          </div>
