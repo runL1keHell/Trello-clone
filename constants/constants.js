@@ -26,7 +26,7 @@ export const ERROR_TITLE = {
 };
 
 export const WARNING_LIMIT_INPROGRESS = {
-    warningText: "There are `${CARDS_LIMIT_INPROGRESS}` tasks In Progress already. Do you confirm adding one more?"
+    warningText: `There are ${CARDS_LIMIT_INPROGRESS} tasks In Progress already. Do you confirm adding one more?`
 };
 
 export const WARNING_DELETE_ALL_CARDS = {
@@ -41,4 +41,8 @@ export const CARD_COLORS = {
     blue: "#d9e8fb",
     red: "#f7cecc",
 };
+
+export const MOCK_API1 = 'https://649eda18245f077f3e9d00a8.mockapi.io/'
+
+export const MOCK_API2 = 'https://64a321b9b45881cc0ae62cbb.mockapi.io'
 

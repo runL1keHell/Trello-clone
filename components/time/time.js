@@ -15,5 +15,3 @@ timestamp.innerHTML = new Intl.DateTimeFormat("ru", {
 }
 setInterval(clock, 1000);
 clock();
-
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat#specifications

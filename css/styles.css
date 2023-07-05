@@ -15,31 +15,32 @@
 }
 .header {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding: 30px;
     background-color: #e2d5e7;
-    border: 1px solid gray;
-    border-radius: 10px;
+    border-bottom: 1px solid gray;
 }
 .columns {
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
     height: 550px;
-    margin: 25px 5px 0 20px;
-    
+    margin: 40px;
 }
+
 .column {
     display: flex;
     flex-direction: column;
     height: 100%;
     width: 30%;
+    /* flex-basis: 30%; */
+    /* flex-grow: 1; */
     border: 1px solid gray;
     border-radius: 15px;
     margin: 0 auto;    
-    
 }
+
 .cards-wrapper {
     display: flex;
     flex-direction: column;
@@ -50,7 +51,6 @@
 }
 .column-heading {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding: 20px;

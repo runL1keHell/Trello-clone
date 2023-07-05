@@ -51,6 +51,14 @@
     width: 100%;
 }
 
+.todo {
+    background-color: #d5e8d4;
+}
+
 .inprogress {
     background-color: #f5f5f5;
+}
+
+.done {
+    background-color: #d9e8fb
 }

@@ -1,6 +1,8 @@
 import { countCards } from "../card/countCards";
-import { modalStyling } from "../modal/modal.js";
+import { closeModal, modalStyling } from "../modal/modal.js";
 import { appendWarningModal, modalSmStyling } from "../modal/modalWarnings.js";
+import { MOCK_API1, MOCK_API2, WARNING_DELETE_ALL_CARDS } from "../../constants/constants.js";
+import { delete_MOCK_API, delete_ALL_MOCK_API} from '../API/mockAPI.js'
 
 (() => {
     const todoColumn = document.getElementById('todoColumn');
@@ -13,6 +15,7 @@ import { appendWarningModal, modalSmStyling } from "../modal/modalWarnings.js";
          todoToRemove.remove();
          localStorageArr[0].splice(storageIndexOfElement, 1);
          localStorage.setItem('trelloKey', JSON.stringify(localStorageArr));
+         delete_MOCK_API(MOCK_API1, 'todo', targetId);
          countCards();
       };
    });
@@ -27,24 +30,35 @@ import { appendWarningModal, modalSmStyling } from "../modal/modalWarnings.js";
          todoToRemove.remove();
          localStorageArr[2].splice(storageIndexOfElement, 1);
          localStorage.setItem('trelloKey', JSON.stringify(localStorageArr));
+         delete_MOCK_API(MOCK_API2, 'done', targetId)
          countCards();
       };
    });
 
    const deleteAll = document.getElementById('DeleteAll'); 
    deleteAll.addEventListener('click', (e) => {
-         appendWarningModal();         
-         modalStyling('small');
-         const confirmDelAllBtn = document.getElementById('confirmButton');
-         confirmDelAllBtn.addEventListener('click', () => {
-            const localStorageArr = JSON.parse(localStorage.getItem('trelloKey'));
-            localStorageArr[2].splice(0);
-            localStorage.setItem('trelloKey', JSON.stringify(localStorageArr));
-            countCards();
-            location.reload();  
+         if (document.getElementById('done-counter').textContent > 0) {
+            appendWarningModal(WARNING_DELETE_ALL_CARDS.warningText);         
+            modalStyling('small');
+            const confirmDelAllBtn = document.getElementById('confirmButton');
+            confirmDelAllBtn.addEventListener('click', () => {
+               const localStorageArr = JSON.parse(localStorage.getItem('trelloKey'));
+               let countOfTodos = Number(document.getElementById('done-counter').textContent);
+               // for (let i = 1; i <= countOfTodos; i++) {
+               //    delete_ALL_MOCK_API(MOCK_API2, 'done', i)
+               // };   
+               delete_ALL_MOCK_API(MOCK_API2, 'done');
+               
+               localStorageArr[2].splice(0);
+               localStorage.setItem('trelloKey', JSON.stringify(localStorageArr));
+               let doneColumn = document.getElementById('todoDone');
+               doneColumn.innerHTML = '';
+               closeModal();                        
+               countCards();
+            // location.reload();  
          })
-      
-   });
-   
+         }
+              
+   });   
 
 })();

@@ -1,16 +1,5 @@
 
-// document.addEventListener("DOMContentLoaded", function(){   
-//   let scrollbar = document.body.clientWidth - window.innerWidth + 'px';
-//     document.querySelector('[href="#openModal"]').addEventListener('click',function(){
-//       document.body.style.overflow = 'hidden';
-//       document.querySelector('#openModal').style.marginLeft = scrollbar;
-//       });
-    // document.querySelector('[href="#close"]').addEventListener('click',function(){
-    //   document.body.style.overflow = 'visible';
-    //   document.querySelector('#openModal').style.marginLeft = '0px';
-     
-    // });
-  // });
+import { BUTTON_TITLES } from "../../constants/constants";
 
   export function appendModal () {
     const modalContainer = document.getElementById('openModal');
@@ -31,7 +20,7 @@
 
           <div>
 
-            <input type="text" class="input-title" id="inputTitle" placeholder="Enter title" autofocus required>
+            <input type="text" class="input-title" id="inputTitle" placeholder="Enter title" minlength="2" maxlength="32" required>
             
             <input type="textarea" class="input-textarea" id="inputTextarea" placeholder="Description" maxlength="200">
         
@@ -41,11 +30,9 @@
         
               </select>
 
-              <div class="button" id="close2">Cancel</div>
+              <div class="button" id="close2">${BUTTON_TITLES.cancel}</div>
 
-              <div class="button" id="confirmButton">
-                Confirm
-              </div>
+              <div class="button" id="confirmButton">${BUTTON_TITLES.confirm}</div>
               
             </div>
           </div>
@@ -60,7 +47,8 @@
     const modalWindow = document.getElementById('openModal');
     modalWindow.style.opacity = 1;
     modalWindow.style.pointerEvents = 'auto';
-    modalWindow.style.overflowY = 'auto';   
+    modalWindow.style.overflowY = 'auto'; 
+    document.body.style.overflow = 'hidden';  
 
     const closeByCancel = document.getElementById('close2');
     closeByCancel.addEventListener('click', closeModal);
@@ -103,7 +91,8 @@ export function closeModal() {
    const modalWindow = document.getElementById('openModal');
    modalWindow.style.opacity = 0;
    modalWindow.style.pointerEvents = 'none';
-   modalWindow.style.overflowY = 'none';   
+   modalWindow.style.overflowY = 'none'; 
+   document.body.style.overflow = 'visible';  
   
   if (document.getElementById('inputTitle')) {
     document.getElementById('inputTitle').value = '';
