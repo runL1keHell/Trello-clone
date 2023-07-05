@@ -16,24 +16,7 @@
     padding: 0;
 }
 
-<<<<<<< HEAD
-=======
-/* при отображении модального окно */
-/* .modal:target {
-    opacity: 1; /* делаем окно видимым */
-/* pointer-events: auto;  */
-/* элемент видим для событий мыши */
-/* overflow-y: auto;  */
 
-/* добавляем прокрутку по y, когда элемент не помещается на страницу */
-/* } */
-/* ширина модального окна и его отступы от экрана */
->>>>>>> 36ea860 (fix: modal.css 70 (border-radius))
-.modal-dialog {
-    position: relative;
-    width: auto;
-    margin: 10px;
-}
 
 @media (min-width: 576px) {
     .modal-dialog {
@@ -64,22 +47,14 @@
 }
 
 .modal-cont-sm {
-<<<<<<< HEAD
     background-color:#d5e8d4;
     border-radius: .3rem;
-   
->>>>>>> 4723c6f (fix: modal.css 70 (border-radius))
 }
 
 .modal-warining-text {
     text-align: center;
-=======
     background-color: #d5e8d4;
-    <<<<<<< HEAD border-radius: 2.3rem;
-
-    =======border-radius: 0.3rem;
-    >>>>>>>75c722a (fix: modal.css 70 (border-radius))
->>>>>>> 36ea860 (fix: modal.css 70 (border-radius))
+    border-radius: 0.3rem;
 }
 
 @media (min-width: 768px) {
@@ -155,16 +130,11 @@
 
 .modal-buttons {
     display: flex;
-<<<<<<< HEAD
-=======
     flex-direction: row;
-
->>>>>>> 36ea860 (fix: modal.css 70 (border-radius))
 }
 
 .modal-buttons-sm {
     justify-content: center;
-<<<<<<< HEAD
 }
 @media (max-width: 480px) {
     .modal-buttons {
@@ -177,6 +147,4 @@
     }; 
 
   }
-=======
-}
->>>>>>> 36ea860 (fix: modal.css 70 (border-radius))
+
