@@ -1,4 +1,5 @@
 import { MOCK_API1, MOCK_API2 } from '../../constants/constants.js'
+import { renderTodo } from '../button/addToDo.js';
 
 async function getMockAPI(MOCK_API, param) {
    let response = await fetch(`${MOCK_API}/${param}`, {
@@ -7,8 +8,18 @@ async function getMockAPI(MOCK_API, param) {
    }
    )
    if (response.status !== 200) return "Bad response";
-     let result = await response.json()
-     return result  
+    let result = await response.json()
+    const localStorageArr = JSON.parse(localStorage.getItem('trelloKey'));
+    if (param === 'todo') {
+      localStorageArr[0] = result;
+    } else if (param === 'progress') {
+      localStorageArr[1] = result;
+    } else if (param === 'done') {
+      localStorageArr[2] = result;
+    }
+    localStorage.setItem('trelloKey', JSON.stringify(localStorageArr));  
+    renderTodo(); 
+    return result  
    };
  getMockAPI(MOCK_API1, 'todo');
  getMockAPI(MOCK_API1, 'progress');
