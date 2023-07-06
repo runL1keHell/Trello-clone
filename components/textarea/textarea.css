@@ -1,0 +1,16 @@
+.input-textarea {
+    width: 450px;
+    height: 150px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+::placeholder {
+    text-align: center;
+}
+
+/* в html установлен лимит на 300 символов для этого поля, 
+правилом хорошего тона считается показывать счетчик при вводе, 
+но это все потом, если будет время
+
+рецепт https://qna.habr.com/q/884831
+*/

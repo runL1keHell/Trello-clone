@@ -1,0 +1,13 @@
+.input-title {
+    width: 450px;
+    height: 25px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    border-color: black;
+}
+::placeholder {
+    text-align: center;
+}
+.input-title:invalid {
+    border-color: red;
+}

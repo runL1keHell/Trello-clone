@@ -1,0 +1,43 @@
+.button {
+    border:1px solid gray;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin:5px;
+    height: 30px;
+    box-sizing: border-box;
+    cursor: pointer;
+    }
+
+.add-todo {
+    background-color: #d5e8d4;
+    border-radius: 15px;
+    border: 1px solid gray;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 auto; /* часть кода пятого способа с https://dimox.name/press_footer_bottom_with_css/ */
+    height: 40px;
+    text-align: center;
+    padding-top: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.delete-all-todo {
+    background-color: #d9e8fb;
+    border-radius: 15px;
+    border: 1px solid gray;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 auto; /* часть кода пятого способа с https://dimox.name/press_footer_bottom_with_css/ */
+    height: 40px;
+    text-align: center;
+    padding-top: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.add-todo a, .delete-all-todo a, .button a {
+    color:#000;
+    text-decoration: none;
+}

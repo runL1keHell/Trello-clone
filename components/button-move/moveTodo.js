@@ -1,0 +1,77 @@
+import { countCards } from "../card/countCards.js";
+import { modalStyling, closeModal, appendModal} from '../modal/modal.js';
+import { renderTodo } from "../button/addToDo.js";
+import { appendWarningModal, modalSmStyling } from "../modal/modalWarnings.js";
+import { MOCK_API1, MOCK_API2, WARNING_LIMIT_INPROGRESS } from "../../constants/constants";
+import { addMock_API, delete_MOCK_API } from '../API/mockAPI.js'
+
+
+
+const todoColumn = document.getElementById('todoColumn');
+todoColumn.addEventListener('click', (e) => {    
+    if (e.target.id.includes("move")) {
+       const localStorageArr = JSON.parse(localStorage.getItem('trelloKey'));
+       const targetId = e.target.id.split('-')[1];
+       const storageIndexOfElement = localStorageArr[0].findIndex((element) => element.id.toString() === targetId);
+       const amountOfCards = document.getElementById('in-progress-counter').textContent;
+       const elementToMove = localStorageArr[0][storageIndexOfElement];
+       if (Number(amountOfCards) < 6) {        
+        localStorageArr[1].push(elementToMove);
+        addMock_API(MOCK_API1, 'progress', elementToMove.id, elementToMove.title, elementToMove.desc, elementToMove.user, elementToMove.date, elementToMove.edited);
+        
+        localStorageArr[0].splice(storageIndexOfElement, 1);
+        delete_MOCK_API(MOCK_API1, 'todo', targetId);
+        localStorage.setItem('trelloKey', JSON.stringify(localStorageArr));
+        document.getElementById(targetId).remove();
+        renderTodo();
+       } else {
+        appendWarningModal(WARNING_LIMIT_INPROGRESS.warningText);
+        modalStyling('small');
+        const confirmDelAllBtn = document.getElementById('confirmButton');
+        confirmDelAllBtn.addEventListener('click', () => {
+            localStorageArr[1].push(elementToMove);
+            addMock_API(MOCK_API1, 'progress', elementToMove.id, elementToMove.title, elementToMove.desc, elementToMove.user, elementToMove.date, elementToMove.edited);
+            localStorageArr[0].splice(storageIndexOfElement, 1);
+            delete_MOCK_API(MOCK_API1, 'todo', targetId);
+            closeModal();
+            localStorage.setItem('trelloKey', JSON.stringify(localStorageArr));
+            document.getElementById(targetId).remove();
+            renderTodo();            
+        })
+       }     
+    };
+});
+
+const todoColumnInProgress = document.getElementById('todoInProgress'); 
+todoColumnInProgress.addEventListener('click', (e) => {    
+    if (e.target.id.includes("back")) {
+       const localStorageArr = JSON.parse(localStorage.getItem('trelloKey'));
+       const targetId = e.target.id.split('-')[1];
+       const storageIndexOfElement = localStorageArr[1].findIndex((element) => element.id.toString() === targetId);
+       const elementToMove = localStorageArr[1][storageIndexOfElement];
+       localStorageArr[0].push(elementToMove);
+       localStorageArr[1].splice(storageIndexOfElement, 1);
+       localStorage.setItem('trelloKey', JSON.stringify(localStorageArr));
+       document.getElementById(targetId).remove();
+       renderTodo();
+       addMock_API(MOCK_API1, 'todo', elementToMove.id, elementToMove.title, elementToMove.desc, elementToMove.user, elementToMove.date, elementToMove.edited);
+       delete_MOCK_API(MOCK_API1, 'progress', targetId);
+    };
+});
+
+
+todoColumnInProgress.addEventListener('click', (e) => {    
+    if (e.target.id.includes("complete")) {
+       const localStorageArr = JSON.parse(localStorage.getItem('trelloKey'));
+       const targetId = e.target.id.split('-')[1];
+       const storageIndexOfElement = localStorageArr[1].findIndex((element) => element.id.toString() === targetId);
+       const elementToMove = localStorageArr[1][storageIndexOfElement];
+       localStorageArr[2].push(elementToMove);
+       localStorageArr[1].splice(storageIndexOfElement, 1);
+       localStorage.setItem('trelloKey', JSON.stringify(localStorageArr));
+       document.getElementById(targetId).remove();
+       renderTodo();
+       addMock_API(MOCK_API2, 'done', elementToMove.id, elementToMove.title, elementToMove.desc, elementToMove.user, elementToMove.date, elementToMove.edited);
+       delete_MOCK_API(MOCK_API1, 'progress', targetId);
+    };
+});

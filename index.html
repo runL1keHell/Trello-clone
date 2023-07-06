@@ -4,9 +4,69 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Trello</title>
-   <script type="module" src="./main.js"></script>
+   <link rel="stylesheet" href="./css/styles.css">
+   <link rel="stylesheet" href="./css/media.css">
+   <script src="./main.js" type="module"></script>
 </head>
 <body>
-   
+
+   <div class="app-container">
+
+      <div class="header">
+
+         <div class="logo">
+            <img src="./img/logo.png" width="50%" height="50%" alt="Trello">
+         </div>
+
+         <div id="timestamp"></div>
+
+      </div>
+
+      <div class="columns">
+<!--колонка 1-->
+         <div class="column">
+            
+            <div class="column-heading todo">todo:
+               
+               <div class="todo-counter" id="todocounter">0</div>
+            
+            </div>
+            
+            <div class="cards-wrapper" id="todoColumn">
+
+            </div>
+            
+            <div class="add-todo" id="addTodo">Add todo</div>
+         </div>
+<!--колонка 2-->
+         <div class="column">
+
+            <div class="column-heading in-progress">in progress:
+               <div class="in-progress-counter" id="in-progress-counter">0</div>
+            </div>
+
+            <div class="cards-wrapper" id="todoInProgress">
+
+            </div>
+         </div>
+<!--колонка 3-->
+         <div class="column">
+
+            <div class="column-heading done">done:
+               <div class="done-counter" id="done-counter">0</div>
+            </div>
+
+            <div class="cards-wrapper" id="todoDone">
+
+            </div>
+            
+            <div class="delete-all-todo" id="DeleteAll">Delete all</div>
+        
+         </div>
+      </div>
+   </div>
+
+   <div id="openModal" class="modal"></div>
+
 </body>
 </html>
