@@ -1,7 +1,7 @@
 import { MOCK_API1, MOCK_API2 } from '../../constants/constants.js'
 import { renderTodo } from '../button/addToDo.js';
 
-async function getMockAPI(MOCK_API, param) {
+export async function getMockAPI(MOCK_API, param) {
    let response = await fetch(`${MOCK_API}/${param}`, {
      method: 'GET',
      headers: {'content-type':'application/json'},
@@ -21,9 +21,6 @@ async function getMockAPI(MOCK_API, param) {
     renderTodo(); 
     return result  
    };
- getMockAPI(MOCK_API1, 'todo');
- getMockAPI(MOCK_API1, 'progress');
- getMockAPI(MOCK_API2, 'done');
  
  
  export async function addMock_API(MOCK_API, param, id, title, desc, user, date, classEdit) {

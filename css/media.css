@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 @import url(../components/time/time.css);
 @import url(../components/card/card.css);
 @import url(../components/button/button.css);
@@ -37,7 +36,6 @@
 
 }
 
->>>>>>> 4030048fbd8ccfa7021e263cfccb674a0f1b28ea
 /* Глобальные стили */
 
 /* Установите box-sizing в border-box, чтобы включить отступы и границы в общую ширину элемента */
@@ -85,8 +83,7 @@
   .column {
     flex-basis: 100%;
     margin: 0 10px 20px;
-<<<<<<< HEAD
-=======
+
   }
   
   .header {
@@ -118,7 +115,6 @@
 
   .button {
     text-align: center;
->>>>>>> 4030048fbd8ccfa7021e263cfccb674a0f1b28ea
     width: 100%;
   }
   .modal-dialog {
