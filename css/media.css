@@ -1,5 +1,5 @@
-@import url(../components/time/time.css);
 
+@import url(../components/time/time.css);
 @import url(../components/card/card.css);
 @import url(../components/button/button.css);
 @import url(../components/button-move/button-move.css);
@@ -36,11 +36,54 @@
 
 }
 
+/* Глобальные стили */
+
+/* Установите box-sizing в border-box, чтобы включить отступы и границы в общую ширину элемента */
+
+
+/* Адаптивные стили */
+
+/* Дополнительные стили для планшета */
+@media only screen and (min-width: 768px) {
+  /* Ширина колонок на планшете */
+
+  .columns {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 25px 5px 0 20px;
+  }
+
+  /* Колонка */
+  .column {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 30%;
+    flex-grow: 1;
+    border: 1px solid gray;
+    border-radius: 15px;
+    margin: 0 10px 20px;
+    width: 30%;
+  }
+}
+
+/* Дополнительные стили для мобильного устройства */
 @media only screen and (max-width: 480px) {
+  /* Ширина колонок на мобильном устройстве */
+  .header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .logo {
+    margin-bottom: 40px;
+  }
 
   .column {
     flex-basis: 100%;
     margin: 0 10px 20px;
+
   }
   
   .header {
@@ -72,5 +115,39 @@
 
   .button {
     text-align: center;
+    width: 100%;
+  }
+  .modal-dialog {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .modal-content {
+    flex-grow: 1;
+    border-radius: 0;
+  }
+
+  .modal-header {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .modal-body {
+    width: 100%;
+    padding: 10px;
+  }
+  .input-title {
+    width: 100%;
+  }
+  .input-textarea {
+    width: 100%;
+  }
+  .modal-buttons {
+    width: 100%;
+  }
+  .input-select {
+    width: 100px;
   }
 }
